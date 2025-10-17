@@ -1,0 +1,26 @@
+name: Test SSH connection
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-ssh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Prepare SSH key
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SERVER_PRIVATE_SSH_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+
+      - name: Test SSH connection
+        env:
+          SSH_HOST: ${{ secrets.SERVER_HOST }}
+          SSH_USER: ${{ secrets.SERVER_USER }}
+          SSH_PORT: ${{ secrets.SERVER_PORT }}
+        run: |
+          # Try a single SSH command; exit non-zero on failure.
+          ssh -o BatchMode=yes -o StrictHostKeyChecking=no -o ConnectTimeout=10 \
+            -p ${SSH_PORT:-22} ${SSH_USER}@${SSH_HOST} "echo SSH_OK"
