@@ -4,7 +4,11 @@
   },
   "customizations": {
     "vscode": {
-      "settings": {},
+      "settings": {
+        "files.associations": {
+          "*.css": "tailwindcss"
+        }
+      },
       "extensions": [
         "denoland.vscode-deno",
         "bradlc.vscode-tailwindcss"
