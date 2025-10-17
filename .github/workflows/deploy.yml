@@ -28,7 +28,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_PRIVATE_SSH_KEY }}
           source: "guide2film3.tar"
-          target: "~/guide2film3.tar"
+          target: "~"
 
       - name: Load and run image on VPS
         uses: appleboy/ssh-action@v1.2.0
