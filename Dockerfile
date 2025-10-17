@@ -12,6 +12,8 @@ RUN deno cache deno.json || true
 # Copy rest of the app
 COPY . .
 
+RUN deno install --allow-scripts
+
 # Build your Next.js app
 RUN deno task build
 
