@@ -1,0 +1,11 @@
+{
+  "name": "Deno",
+  "image": "denoland/deno",
+  "customizations": {
+    "vscode": {
+      "settings": {},
+      "extensions": ["denoland.vscode-deno"]
+    }
+  },
+  "postCreateCommand": "deno install"
+}
