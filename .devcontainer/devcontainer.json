@@ -1,11 +1,15 @@
 {
-  "name": "Deno",
-  "image": "denoland/deno",
+  "features": {
+    "ghcr.io/devcontainers-community/features/deno": {}
+  },
   "customizations": {
     "vscode": {
       "settings": {},
-      "extensions": ["denoland.vscode-deno"]
+      "extensions": [
+        "denoland.vscode-deno",
+        "bradlc.vscode-tailwindcss"
+      ]
     }
   },
-  "postCreateCommand": "deno install"
+  "postCreateCommand": "deno install --allow-scripts"
 }
