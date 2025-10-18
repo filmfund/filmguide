@@ -27,5 +27,5 @@ COPY --from=base /app/deno.json ./deno.json
 COPY --from=base /app/package.json ./package.json
 COPY --from=base /app/node_modules ./node_modules
 
-EXPOSE 80
+EXPOSE 3000
 CMD ["deno", "task", "start"]
