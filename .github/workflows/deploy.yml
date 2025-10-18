@@ -40,4 +40,4 @@ jobs:
             docker load -i ~/guide2film3.tar
             docker stop guide2film3 || true
             docker rm guide2film3 || true
-            docker run -d --name guide2film3 -p 3000:80 guide2film3:latest
+            docker run -d --name guide2film3 -p 3000:3000 guide2film3:latest
