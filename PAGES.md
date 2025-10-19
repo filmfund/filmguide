@@ -1,9 +1,22 @@
 # Pages Structure of the App
 
-## Header
+## Introduction to this document
+
+Emoji's used for clarification:
+- ⭐ subscribed only
+    - the star will tell you which parts of the app are subscribe only
+- 🆓 unsubscribed only
+    - the free emoji will show you the parts which are only shown when there is no subscribed user signed in
+
+## Components
+### Header
 
 - Logo and catchphrase
 - Wallet Connect
+
+### Wallet Connect
+
+Pretty standard wallet connect button.
 
 ## Pages
 
@@ -37,6 +50,10 @@
 
 - Buttons to:
     - [Film tokens comparison](#filmtokens)
+    - 🆓not available without subscription / guide for a filmmaker in the world of blockchain
+        - this is greyed out button
+    - ⭐guide for a filmmaker in the world of blockchain
+    - [Support a filmmaker](#supportfilmmaker)
 
 
 ### FilmTokens
@@ -71,6 +88,11 @@
 | description      | Support a film maker by subscribing to the app |
 | subscribed_only  | no         |
 
+#### Content
+
+- Buttons to:
+    - 🆓 [Subscription Button](#subscribe)
+
 ### WhatToWatchAgent
 
 |       property   |  value |
@@ -78,3 +100,16 @@
 | page             | src/app/what-to-watch/page.tsx |
 | description      | What to watch agent |
 | subscribed_only  | yes         |
+
+#### Content
+
+- Window to chat with agent about films
+
+### FilmMakersGuide
+|       property   |  value |
+| ---------------- | ------------ |
+| page             | src/app/film-makers-guide/page.tsx |
+| description      | Film makers guide agent |
+| subscribed_only  | yes         |
+#### Content
+- Window to chat with agent to talk about film making with
