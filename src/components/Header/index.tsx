@@ -1,4 +1,4 @@
-import WalletConnect from "../WalletConnect/index.tsx";
+import WalletConnect from "../WalletConnect/index";
 
 export default function Header() {
     return (

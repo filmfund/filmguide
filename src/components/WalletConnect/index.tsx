@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from "../ui/button.tsx";
+import { Button } from "../ui/button";
 
 export default function WalletConnect() {
     return (

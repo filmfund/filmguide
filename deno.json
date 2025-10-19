@@ -3,8 +3,14 @@
     "bare-node-builtins",
     "detect-cjs",
     "node-globals",
-    "unsafe-proto",
-    "sloppy-imports"
-  ]
+    "unsafe-proto"
+  ],
+  "lint": {
+    "rules": {
+      "exclude": [
+        "no-sloppy-imports"
+      ]
+    }
+  }
 }
 
