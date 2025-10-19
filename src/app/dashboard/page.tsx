@@ -12,11 +12,10 @@ export default function TokensPage(): React.ReactElement {
                 />
             </Head>
             
-            <main className="container">
-                <div className="grid grid-flow-col gap-2">
-                    <div className="row-span-3">01</div>
-                    <div className="col-span-2">02</div>
-                    <div className="col-span-2 row-span-2">03</div>
+            <main className="container border-r-8 mx-auto mt-12 rounded-sm">
+                <div className="grid grid-flow-col gap-2 border-8 rounded-sm">
+                    <div className="border-2 border-r-2">01</div>
+                    <div className="">02</div>
                 </div>
             </main>
         </>
