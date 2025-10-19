@@ -65,9 +65,9 @@ Initial question from the what to watch agent:
 - [WhatToWatchAIDialog](#whattowatchaidialog)
 - Buttons to:
     - [Film tokens comparison](#filmtokens)
+    - ⭐[guide for a filmmaker in the world of blockchain](#filmmakersguide)
     - 🆓not available without subscription / guide for a filmmaker in the world of blockchain
         - this is greyed out button
-    - ⭐[guide for a filmmaker in the world of blockchain](#filmmakersguide)
     - [Support a filmmaker](#supportfilmmaker)
 
 
