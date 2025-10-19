@@ -26,3 +26,8 @@ deno task dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Used Frameworks/APIs
+
+- [NextJS](https://nextjs.org/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [shadcn/ui](https://ui.shadcn.com)
