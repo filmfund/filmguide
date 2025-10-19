@@ -1,13 +1,12 @@
 import React from "react";
 import { Metadata } from "next";
 
-//Film Token Details | Guide2Film3
 export const metadata: Metadata = {
-  title: 'Dashboard | Guide2Film3',
-  description: 'Dashboard - Your go to resource for Web3 Films and their creation.'
+  title: 'Subscribe | Guide2Film3',
+  description: 'Subscribe - Support a Film Maker by subscribing.'
 }
 
-export default function DashboardPage(): React.ReactElement {
+export default function SubscribePage(): React.ReactElement {
     return (
         <>           
             <main className="container border-r-8 mx-auto mt-12 rounded-sm">

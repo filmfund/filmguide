@@ -1,17 +1,14 @@
 import React from "react";
-import Head from "next/head";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Film Tokens | Guide2Film3',
+  description: 'Film Tokens — multiple collections of NFTs used in support of the making of Web3 Films.'
+}
 
 export default function TokensPage(): React.ReactElement {
     return (
-        <>
-            <Head>
-                <title>Film Tokens — Guide2Film3</title>
-                <meta
-                    name="description"
-                    content="Film Tokens — multiple collections of NFTs used in support of the making of Web3 Films."
-                />
-            </Head>
-            
+        <>            
             <main className="container">
                 <header className="hero">
                     <h1>Film Tokens</h1>

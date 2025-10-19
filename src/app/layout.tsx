@@ -14,7 +14,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Guide2Film3",
+  title: {
+    default: "Guide2Film3",
+    template: "%s | Guide2Film3",
+  },
   description: "Your go to resource for Web3 Films and their creation.",
 };
 
