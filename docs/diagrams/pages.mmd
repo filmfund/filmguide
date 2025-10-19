@@ -2,25 +2,25 @@
 graph TD
 
     %% Main App
-    A[🏠 Index Page<br/>src/app/page.tsx<br/>🆓⭐] --> B[📊 Dashboard<br/>src/app/dashboard/page.tsx<br/>🆓⭐]
-    A --> C[💫 Subscribe<br/>src/app/subscribe/page.tsx<br/>🆓⭐]
-    A --> D[🎬 SupportFilmMaker<br/>src/app/support-film-maker/page.tsx<br/>🆓⭐]
+    A[🏠 Index Page<br/>page.tsx<br/>🆓⭐] --> B[📊 Dashboard<br/>dashboard/page.tsx<br/>🆓⭐]
+    A --> C[💫 Subscribe<br/>subscribe/page.tsx<br/>🆓⭐]
+    A --> D[🎬 SupportFilmMaker<br/>support-film-maker/page.tsx<br/>🆓⭐]
 
     %% Dashboard Connections
-    B --> E[🎥 FilmTokens<br/>src/app/tokens/page.tsx<br/>🆓⭐]
+    B --> E[🎥 FilmTokens<br/>tokens/page.tsx<br/>🆓⭐]
     B --> F[🧠 WhatToWatchAIDialog<br/>Component<br/>🆓⭐]
-    B --> G[⭐ FilmMakersGuide<br/>src/app/film-makers-guide/page.tsx]
+    B --> G[⭐ FilmMakersGuide<br/>film-makers-guide/page.tsx]
     B --> D
 
     %% FilmTokens Detail
-    E --> H[🎞️ FilmToken Details<br/>src/app/tokens/[[...tokens]].tsx<br/>🆓⭐]
+    E --> H["🎞️ FilmToken Details<br/>tokens/[[...tokens]].tsx<br/>🆓⭐"]
 
     %% Support FilmMaker Page
     D --> C
 
     %% WhatToWatchAIDialog Branching
     F --> I[🆓 Subscribe Button<br/>Shown if not subscribed]
-    F --> J[⭐ WhatToWatchAgent<br/>src/app/what-to-watch/page.tsx]
+    F --> J[⭐ WhatToWatchAgent<br/>what-to-watch/page.tsx]
 
     %% Components
     subgraph Components

@@ -128,3 +128,7 @@ Initial question from the what to watch agent:
 | subscribed_only  | yes         |
 #### Content
 - Window to chat with agent to talk about film making with
+
+## Diagram
+
+![diagram of the layout](docs/diagrams/pages.svg)
