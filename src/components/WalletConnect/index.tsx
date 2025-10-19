@@ -1,7 +1,9 @@
 'use client';
 
+import { Button } from "../ui/button.tsx";
+
 export default function WalletConnect() {
     return (
-        <button type="button" onClick={() => alert('connect wallet not implemented yet')}>Connect Wallet</button>
+        <Button type="button" onClick={() => alert('connect wallet not implemented yet')}>Connect Wallet</Button>
     )
 }
