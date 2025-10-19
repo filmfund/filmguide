@@ -1,0 +1,43 @@
+%%{init: {'theme': 'neutral'}}%%
+graph TD
+
+    %% Main App
+    A[🏠 Index Page<br/>src/app/page.tsx<br/>🆓⭐] --> B[📊 Dashboard<br/>src/app/dashboard/page.tsx<br/>🆓⭐]
+    A --> C[💫 Subscribe<br/>src/app/subscribe/page.tsx<br/>🆓⭐]
+    A --> D[🎬 SupportFilmMaker<br/>src/app/support-film-maker/page.tsx<br/>🆓⭐]
+
+    %% Dashboard Connections
+    B --> E[🎥 FilmTokens<br/>src/app/tokens/page.tsx<br/>🆓⭐]
+    B --> F[🧠 WhatToWatchAIDialog<br/>Component<br/>🆓⭐]
+    B --> G[⭐ FilmMakersGuide<br/>src/app/film-makers-guide/page.tsx]
+    B --> D
+
+    %% FilmTokens Detail
+    E --> H[🎞️ FilmToken Details<br/>src/app/tokens/[[...tokens]].tsx<br/>🆓⭐]
+
+    %% Support FilmMaker Page
+    D --> C
+
+    %% WhatToWatchAIDialog Branching
+    F --> I[🆓 Subscribe Button<br/>Shown if not subscribed]
+    F --> J[⭐ WhatToWatchAgent<br/>src/app/what-to-watch/page.tsx]
+
+    %% Components
+    subgraph Components
+        K[Header<br/>Logo + Wallet Connect]
+        L[Wallet Connect Button]
+    end
+    K --> L
+    A --> K
+    B --> K
+    C --> K
+    D --> K
+    E --> K
+    G --> K
+    J --> K
+
+    %% Legend
+    subgraph Legend
+        L1[⭐ = Subscribed Only]
+        L2[🆓 = Unsubscribed Only]
+    end

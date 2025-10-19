@@ -18,6 +18,20 @@ Emoji's used for clarification:
 
 Pretty standard wallet connect button.
 
+
+### WhatToWatchAIDialog
+
+#### Functionality
+##### Subscribed ⭐
+Initial question from the what to watch agent:
+ - WHAT TO WATCH THIS EVENING WITH FRENS AND FAM if I WANT TO TEACH THEM ABOUT BLOCKCHAIN, WEB3 ETC
+ - After the first answer you get a link to [WhatToWatchAgent](#whattowatchagent)
+
+##### Unsubscribed 🆓
+Initial question from the what to watch agent:
+ - WHAT TO WATCH THIS EVENING WITH FRENS AND FAM if I WANT TO TEACH THEM ABOUT BLOCKCHAIN, WEB3 ETC
+ - When first answer is received, you can only click the subscribe button
+
 ## Pages
 
 ### Index
@@ -48,11 +62,12 @@ Pretty standard wallet connect button.
 
 #### Content
 
+- [WhatToWatchAIDialog](#whattowatchaidialog)
 - Buttons to:
     - [Film tokens comparison](#filmtokens)
     - 🆓not available without subscription / guide for a filmmaker in the world of blockchain
         - this is greyed out button
-    - ⭐guide for a filmmaker in the world of blockchain
+    - ⭐[guide for a filmmaker in the world of blockchain](#filmmakersguide)
     - [Support a filmmaker](#supportfilmmaker)
 
 
