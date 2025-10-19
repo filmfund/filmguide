@@ -21,6 +21,8 @@
     - [Try the app](#dashboard)
     - [Subscribe to get the full experience](#subscribe)
     - [Support a filmmaker](#supportfilmmaker)
+- Information:
+    - Text about the project
 
 
 ### Dashboard
@@ -36,12 +38,21 @@
 - Buttons to:
     - [Film tokens comparison](#filmtokens)
 
+
 ### FilmTokens
 
 |       property   |  value |
 | ---------------- | ------------ |
 | page             | src/app/tokens/page.tsx |
 | description      | Film Tokens |
+| subscribed_only  | no         |
+
+### FilmToken Details
+
+|       property   |  value |
+| ---------------- | ------------ |
+| page             | src/app/tokens/[[...tokens]].tsx |
+| description      | Film Token Details |
 | subscribed_only  | no         |
 
 ### Subscribe
@@ -60,3 +71,10 @@
 | description      | Support a film maker by subscribing to the app |
 | subscribed_only  | no         |
 
+### WhatToWatchAgent
+
+|       property   |  value |
+| ---------------- | ------------ |
+| page             | src/app/what-to-watch/page.tsx |
+| description      | What to watch agent |
+| subscribed_only  | yes         |
