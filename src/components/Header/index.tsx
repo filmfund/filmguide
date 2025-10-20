@@ -9,10 +9,10 @@ export default function Header() {
             <div className="container mx-auto px-6 py-4 flex items-center justify-between">
                 <div className="flex items-center gap-4">
                     <Image
-                        src="/guide2film3_logo.png"
+                        src="/favicon_filmfundeth.png"
                         alt="Guide2Film3 Logo"
-                        width={50}
-                        height={50}
+                        width={65}
+                        height={65}
                         className="object-contain"
                     />
                     <div>
