@@ -6,7 +6,7 @@ import Link from "next/link";
 //Film Token Details | Guide2Film3
 export const metadata: Metadata = {
   title: 'Dashboard | Guide2Film3',
-  description: 'Dashboard - Your go to resource for Web3 Films and their creation.'
+  description: 'Dashboard - AI-powered Web3 guide to blockchain films, funding, and decentralized cinema.'
 }
 
 export default function DashboardPage(): React.ReactElement {

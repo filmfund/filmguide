@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     default: "Guide2Film3",
     template: "%s | Guide2Film3",
   },
-  description: "Your go to resource for Web3 Films and their creation.",
+  description: "AI-powered Web3 guide to blockchain films, funding, and decentralized cinema.",
 };
 
 
