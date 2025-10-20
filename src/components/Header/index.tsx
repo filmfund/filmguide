@@ -15,7 +15,7 @@ export default function Header() {
                     />
                     <div>
                         <h1 className="text-2xl font-bold text-[#E1C586]">Guide2Film3</h1>
-                        <p className="text-sm text-[#999999]">Catchy Phrase</p>
+                        <p className="font-semibold text-sm text-[#999999]">aka Guide to Blockchain Cinema by <a href="http://filmfund.113kw.net/" className="text-[#E1C586]">FilmFund.ETH</a> . AI-powered Web3 guide to blockchain films, funding, and decentralized cinema.</p>
                     </div>
                 </div>
                 <button className="px-6 py-2 bg-[#E1C586] text-[#2b2b31] rounded-lg font-semibold hover:bg-[#E1D486] transition-colors duration-200 border border-[#BB9867]">
