@@ -4,9 +4,9 @@ import Image from 'next/image';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#2b2b31] flex flex-col">
-      <main className="container mx-auto px-6 py-12 flex-grow">
-        <div className="grid lg:grid-cols-2 gap-8 items-start max-w-7xl mx-auto">
+    <div className="min-h-[85vh] bg-[#2b2b31] flex flex-col">
+      <main className="container mx-auto px-6 py-12">
+        <div className="grid lg:grid-cols-2 gap-4 items-start max-w-7xl mx-auto scale-95">
           <div className="bg-[#2b2b31] rounded-2xl p-8 border-2 border-[#A60E0E] shadow-2xl">
             <h2 className="text-3xl font-bold text-[#E1C586] mb-6">
               Guide to Blockchain Cinema
@@ -15,9 +15,6 @@ export default function Home() {
               <p>
                 AI-powered Web3 guide to blockchain films, funding, and decentralized cinema
               </p>
-              {/* <p>
-                Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
-              </p> */}
               <div className="pt-4 border-t border-[#BB9867] mt-6">
                 <h3 className="text-lg font-semibold text-[#E1C586] mb-3">Features:</h3>
                 <ul className="space-y-2 text-sm">
