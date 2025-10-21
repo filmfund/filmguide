@@ -1,38 +1,30 @@
 # 1. Base stage with Deno
-FROM denoland/deno:alpine-2.5.4 AS base
+FROM oven/bun:1.3.0-alpine AS base
 WORKDIR /app
 
-ENV LD_LIBRARY_PATH=/usr/lib:/usr/local/lib
+#ENV LD_LIBRARY_PATH=/usr/lib:/usr/local/lib
 
 # # install node-gyp dependencies
-RUN apk add --no-cache python3 make g++
+#RUN apk add --no-cache python3 make g++
 # # install npm and nodejs
-RUN apk add --no-cache nodejs npm
-
-# Copy dependency files first (to leverage Docker cache)
-COPY deno.json* .
-COPY import_map.json* .
-
-# Cache dependencies (fetch everything up front)
-RUN deno cache deno.json || true
+#RUN apk add --no-cache nodejs npm
 
 # Copy rest of the app
 COPY . .
 
-RUN deno install --allow-scripts
+RUN bun install
 
 # Build your Next.js app
-RUN deno task build
+RUN bun run build
 
 # 2. Runtime stage
-FROM denoland/deno:alpine-2.5.4 AS runtime
+FROM oven/bun:1.3.0-alpine AS runtime
 WORKDIR /app
 
 COPY --from=base /app/.next ./.next
 COPY --from=base /app/public ./public
-COPY --from=base /app/deno.json ./deno.json
 COPY --from=base /app/package.json ./package.json
 COPY --from=base /app/node_modules ./node_modules
 
 EXPOSE 3000
-CMD ["deno", "task", "start"]
+CMD ["bun", "run", "start"]
