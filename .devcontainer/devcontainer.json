@@ -1,6 +1,5 @@
 {
   "features": {
-    "ghcr.io/devcontainers-community/features/deno": {}
   },
   "customizations": {
     "vscode": {
@@ -10,10 +9,10 @@
         }
       },
       "extensions": [
-        "denoland.vscode-deno",
+        "oven.bun-vscode",
         "bradlc.vscode-tailwindcss"
       ]
     }
   },
-  "postCreateCommand": "deno install --allow-scripts"
+  "postCreateCommand": "bun install"
 }

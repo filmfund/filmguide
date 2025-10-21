@@ -3,24 +3,24 @@
 The web-app for Guide2Film3. This project is made for the ETH Global Hackathon 2025.
 
 ## Prerequisites
-- [Deno 2](https://deno.com/)
+- [Bun](https://bun.com/)
 
 ## Getting Started
 
 Install the requirements:
 ```bash
-deno install --allow-scripts
+bun install
 ```
 
 Disable Telemetry:
 ```bash
-deno run -A npm:next telemetry disable
+bunx next telemetry disable
 ```
 
 Run the development server:
 
 ```bash
-deno task dev
+bun task dev
 ```
 
 
