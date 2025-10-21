@@ -2,6 +2,13 @@
 FROM denoland/deno:alpine-2.5.4 AS base
 WORKDIR /app
 
+ENV LD_LIBRARY_PATH=/usr/lib:/usr/local/lib
+
+# # install node-gyp dependencies
+RUN apk add --no-cache python3 make g++
+# # install npm and nodejs
+RUN apk add --no-cache nodejs npm
+
 # Copy dependency files first (to leverage Docker cache)
 COPY deno.json* .
 COPY import_map.json* .
