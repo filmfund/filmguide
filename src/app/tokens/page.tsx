@@ -1,5 +1,6 @@
 import React from "react";
 import { Metadata } from "next";
+import { FilmTokensList } from "./_components/FilmToken";
 
 export const metadata: Metadata = {
   title: 'Film Tokens | Guide2Film3',
@@ -16,6 +17,9 @@ export default function TokensPage(): React.ReactElement {
                         This page contains several NFTs used in support of the making of Web3 Films. (Editor please add more descriptive text here.)
                     </p>
                 </header>
+                <section className="film-tokens-list">
+                    <FilmTokensList />
+                </section>
             </main>
         </>
     );
