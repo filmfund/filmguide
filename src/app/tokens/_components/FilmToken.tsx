@@ -1,6 +1,12 @@
 'use client';
 import React from 'react';
 
+import { useQuery } from '@tanstack/react-query'
+
+// const filmTokens = await import('../filmTokens.json', {
+//   with: { type: 'json' }
+// }) as unknown as TokenInfo[];
+
 type TokenInfo = {
     address: string;
     chainId: number;
@@ -10,12 +16,7 @@ type TokenInfo = {
     tokenType: string;
     openSeaUrl?: string;
     director: string;
-}
-
-// Read tokens from filmTokens.json in this folder:
-function loadFilmTokens() : TokenInfo[] {
-    const filmTokens: TokenInfo[] = require('../filmTokens.json');
-    return filmTokens;
+    website?: string;
 }
 
 /*
@@ -41,8 +42,26 @@ type BlockscoutTokenResponse = {
 
 };
 
+function getAPIUrlForChain(chainId: number): string | null {
+    switch (chainId) {
+        case 1:
+            return 'https://eth.blockscout.com/api/v2/tokens/';
+        case 56:
+            return 'https://bsc.blockscout.com/api/v2/tokens/';
+        case 137:
+            return 'https://polygon.blockscout.com/api/v2/tokens/';
+        default:
+            return null;
+    }
+}
+
 function FetchTokenInfo(address: string, chainId: number) : Promise<BlockscoutTokenResponse | null> {
-    const apiUrl = `https://eth.blockscout.com/api/v2/tokens/${address}`;
+    const apiBaseUrl = getAPIUrlForChain(chainId);
+    if (!apiBaseUrl) {
+        console.error(`Unsupported chain ID: ${chainId}`);
+        return Promise.resolve(null);
+    }
+    const apiUrl = `${apiBaseUrl}${address}`;
 
     return fetch(apiUrl)
         .then(response => {
@@ -62,9 +81,6 @@ function FetchTokenInfo(address: string, chainId: number) : Promise<BlockscoutTo
 
 // Component to display a single film token
 function FilmToken(tokenInfo: TokenInfo) : React.ReactElement {
-    // https://docs.blockscout.com/api-reference/get-token-info
-    // Get Token info:
-    // https://eth.blockscout.com/api/v2/tokens/{address_hash}
     const [tokenData, setTokenData] = React.useState<BlockscoutTokenResponse | null>(null);
 
     React.useEffect(() => {
@@ -83,6 +99,13 @@ function FilmToken(tokenInfo: TokenInfo) : React.ReactElement {
             <p><strong>Token Type:</strong> {tokenInfo.tokenType}</p>
             <p><strong>Chain ID:</strong> {tokenInfo.chainId}</p>
             <p><strong>Contract Address:</strong> {tokenInfo.address}</p>
+            {tokenInfo.website && (
+                <p>
+                    <a href={tokenInfo.website} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">
+                        Official Website
+                    </a>
+                </p>
+            )}
             {tokenInfo.openSeaUrl && (
                 <p>
                     <a href={tokenInfo.openSeaUrl} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">
@@ -105,14 +128,22 @@ function FilmToken(tokenInfo: TokenInfo) : React.ReactElement {
 }
 
 function FilmTokensList(): React.ReactElement {
-    const filmTokens = loadFilmTokens();
+
+    const { data, isPending, error } = useQuery<TokenInfo[]>({
+        queryKey: ['filmtokens'],
+        queryFn: () => fetch('/api/tokens').then(r => r.json()),
+    })
+
+    if (isPending) return <span>Loading...</span>
+    if (error) return <span>Oops!</span>
+
     return (
         <div className="film-tokens-list">
-            {filmTokens.map((tokenInfo, index) => (
+            {data.map((tokenInfo, index) => (
                 <FilmToken key={index} {...tokenInfo} />
             ))}
         </div>
     );
 }
 
-export { FilmToken, loadFilmTokens, FilmTokensList, type TokenInfo };
+export { FilmToken, FilmTokensList, type TokenInfo };

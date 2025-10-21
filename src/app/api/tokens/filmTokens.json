@@ -1,0 +1,12 @@
+[
+    {
+        "chainId": 1,
+        "address": "0x3b3bc9b1dd9f3c8716fff083947b8769e2ff9781",
+        "movieName": "ANTARA",
+        "tokenCollectionName": "Arabian Camels NFT",
+        "tokenType": "NFT",
+        "openSeaUrl": "https://opensea.io/collection/arabian-camels",
+        "director": "Simon West",
+        "website": "https://www.antaramovie.com/"
+    }
+]
