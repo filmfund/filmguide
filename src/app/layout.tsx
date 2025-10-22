@@ -22,7 +22,10 @@ export const metadata: Metadata = {
     default: "Guide2Film3",
     template: "%s | Guide2Film3",
   },
-  description: "AI-powered Web3 guide to blockchain films, funding, and decentralized cinema."
+  description: "AI-powered Web3 guide to blockchain films, funding, and decentralized cinema.",
+  appleWebApp: {
+    title: "GUIDE2FILM3"
+  }
 };
 
 
