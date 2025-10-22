@@ -16,7 +16,7 @@ export default function Header() {
     // fallback image
     const fallbackImage = (
         <Image
-            src="/lowres_filmfundeth.png"
+            src="/background_logo.png"
             alt={logoAltText}
             width={logoWidth}
             height={logoHeight}
@@ -28,14 +28,14 @@ export default function Header() {
     if (isOnClient()) {
         logoImageElement = (
             <Suspense fallback={fallbackImage}>
-                <SuspenseImage 
+                <SuspenseImage
                     src="/guide2film3.gif"
                     alt={logoAltText}
                     width={logoWidth}
                     height={logoHeight}
                     unoptimized={true}
                     className="object-contain"
-                    />
+                />
             </Suspense>
         );
     }

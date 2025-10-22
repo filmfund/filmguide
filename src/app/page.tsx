@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Home() {
   return (
@@ -7,6 +8,15 @@ export default function Home() {
       <main className="container mx-auto px-6 py-12">
         <div className="grid lg:grid-cols-2 gap-4 items-start max-w-7xl mx-auto scale-95">
           <div className="bg-[#2b2b31] rounded-2xl p-8 border-2 border-[#A60E0E] shadow-2xl">
+            <div className="mb-6 rounded-xl overflow-hidden border-2 border-[#BB9867]">
+              <Image
+                src="/Guide2film3image.png"
+                alt="Blockchain Cinema"
+                width={300}
+                height={300}
+                className="w-full h-auto object-cover"
+              />
+            </div>
             <h2 className="text-3xl font-bold text-[#E1C586] mb-6">
               Guide to Blockchain Cinema
             </h2>
