@@ -8,24 +8,18 @@ export default function Home() {
       <main className="container mx-auto px-6 py-12">
         <div className="grid lg:grid-cols-2 gap-4 items-start max-w-7xl mx-auto scale-95">
           <div className="bg-[#2b2b31] rounded-2xl p-8 border-2 border-[#A60E0E] shadow-2xl">
-            <div className="mb-6 rounded-xl overflow-hidden border-2 border-[#BB9867]">
+            <div className="mb-4 rounded-xl overflow-hidden">
               <Image
-                src="/Guide2film3image.png"
+                src="/mainpageimage.png"
                 alt="Blockchain Cinema"
                 width={300}
                 height={300}
                 className="w-full h-auto object-cover"
               />
             </div>
-            <h2 className="text-3xl font-bold text-[#E1C586] mb-6">
-              Guide to Blockchain Cinema
-            </h2>
             <div className="space-y-4 text-[#999999] leading-relaxed">
-              <p>
-                AI-powered Web3 guide to blockchain films, funding, and decentralized cinema
-              </p>
-              <div className="pt-4 border-t border-[#BB9867] mt-6">
-                <h3 className="text-lg font-semibold text-[#E1C586] mb-3">Features:</h3>
+              <div className="pt-4 mt-6">
+                <h3 className="text-lg font-semibold text-[#E1C586] mb-3">AI-powered Web3 guide to blockchain films, funding and decentralized cinema</h3>
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-center gap-6">
                     {/* <span className="text-[#E1D486]">✦</span> */}
@@ -36,7 +30,7 @@ export default function Home() {
                   <li className="flex items-center gap-6">
                     {/* <span className="text-[#E1D486]">✦</span> */}
                     <div>
-                      <span className="text-[#E1D486]">✦ Support the Filmmaker –</span> Contribute directly to emerging film projects. Every subscription or micro-donation helps real creators develop their blockchain-powered stories.
+                      <span className="text-[#E1D486]">✦ Support a Filmmaker –</span> Contribute directly to emerging film projects. Every subscription or micro-donation helps real creators develop their blockchain-powered stories.
                     </div>
                   </li>
                   <li className="flex items-center gap-6">
