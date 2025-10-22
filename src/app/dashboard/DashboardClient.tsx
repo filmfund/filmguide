@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from "next/image";
+import ChatInterface from '@/components/ChatInterface';
 
 const MOCK_SUBSCRIBED = false;
 
@@ -15,65 +17,13 @@ export default function DashboardClient() {
                 <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
                     <div className="space-y-6">
                         <div className="bg-[#2b2b31] border-2 border-[#BB9867] rounded-xl p-6">
-                            <h3 className="text-[#E1C586] font-semibold mb-3">What about the project?</h3>
-                            <p className="text-[#999999] text-sm mb-2">What it is about</p>
+                            <h3 className="text-[#E1C586] font-semibold mb-3">Want to watch a movie about blockchain?</h3>
                             <p className="text-[#999999] text-sm">
-                                This is an AI-powered guide helping you discover the best blockchain and crypto films worth your attention.
+                                The What to Watch agent is your personal AI film curator — trained on hundreds of blockchain-related titles, it instantly recommends the best movies about Bitcoin, Ethereum, NFTs, Web3 innovation, crypto scams, and meaningful decentralized projects.
                             </p>
                         </div>
 
-                        <div className="bg-[#2b2b31] border-2 border-[#BB9867] rounded-xl p-6">
-                            <h3 className="text-[#E1C586] font-semibold mb-3">Recommended Films</h3>
-                            <div className="space-y-3">
-                                <p className="text-[#999999] text-sm">
-                                    Based on your interests in blockchain and Web3:
-                                </p>
-                                <ul className="space-y-2 text-sm text-[#E1D486]">
-                                    <li className="hover:text-[#E1C586] cursor-pointer">→ Movie 1</li>
-                                    <li className="hover:text-[#E1C586] cursor-pointer">→ Movie 2</li>
-                                    <li className="hover:text-[#E1C586] cursor-pointer">→ Movie 3</li>
-                                    <li className="hover:text-[#E1C586] cursor-pointer">→ Movie 4</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div className="bg-[#2b2b31] border-2 border-[#BB9867] rounded-xl p-6">
-                            <h2 className="text-xl font-bold text-[#E1C586] mb-4">
-                                WHAT TO WATCH THIS EVENING WITH FRENS AND FAM?
-                            </h2>
-                            <div className="bg-[#2b2b31] border border-[#999999] rounded-lg p-4 mb-4">
-                                <p className="text-[#999999] text-sm italic">
-                                    Here AI will give the answers, for example a block of text with hyperlinks names of movies
-                                </p>
-                            </div>
-
-                            {isSubscribed ? (
-                                <div className="border-2 border-[#E1D486] rounded-lg p-4 bg-[#2b2b31]/50">
-                                    <p className="text-[#E1C586] font-semibold mb-2">AI Agent Chat</p>
-                                    <p className="text-[#999999] text-sm mb-3">
-                                        Ask me about blockchain films and Web3 cinema
-                                    </p>
-                                    <button
-                                        onClick={() => setShowDialog(!showDialog)}
-                                        className="w-full px-4 py-2 bg-[#E1C586] text-[#2b2b31] rounded-lg font-semibold hover:bg-[#E1D486] transition-colors"
-                                    >
-                                        {showDialog ? 'Close AI Agent' : 'Open AI Agent'}
-                                    </button>
-                                </div>
-                            ) : (
-                                <div className="border-2 border-[#A60E0E] rounded-lg p-4 bg-[#2b2b31]/50">
-                                    <p className="text-[#E71111] font-semibold mb-2">Premium Feature</p>
-                                    <p className="text-[#999999] text-sm mb-3">
-                                        Subscribe to unlock the AI film agent and get personalized recommendations
-                                    </p>
-                                    <Link href="/subscribe">
-                                        <button className="w-full px-4 py-2 bg-[#E71111] text-white rounded-lg font-semibold hover:bg-[#A60E0E] transition-colors">
-                                            Subscribe to Unlock
-                                        </button>
-                                    </Link>
-                                </div>
-                            )}
-                        </div>
+                        <ChatInterface />
                     </div>
                     <div className="flex flex-col gap-8">
                         <Link href="/tokens">
