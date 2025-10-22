@@ -12,7 +12,7 @@ export default function Header() {
     // fallback image
     const fallbackImage = (
         <Image
-            src="/favicon_filmfundeth.png"
+            src="/lowres_filmfundeth.png"
             alt={logoAltText}
             width={logoWidth}
             height={logoHeight}
