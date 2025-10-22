@@ -5,7 +5,6 @@ import '@rainbow-me/rainbowkit/styles.css';
 import Providers from "./providers";
 import Header from "../components/Header/index";
 import Footer from "@/components/Footer";
-import Image from "next/image";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
