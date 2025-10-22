@@ -17,6 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://app.filmfundeth.com'),
   title: {
     default: "Guide2Film3",
     template: "%s | Guide2Film3",
