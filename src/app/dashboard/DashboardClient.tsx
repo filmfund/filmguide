@@ -2,15 +2,12 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import Image from "next/image";
 import ChatInterface from '@/components/ChatInterface';
-import BackgroundLogo from '@/components/BackgroundLogo';
 
 const MOCK_SUBSCRIBED = false;
 
 export default function DashboardClient() {
     const [isSubscribed] = useState(MOCK_SUBSCRIBED);
-    const [showDialog, setShowDialog] = useState(false);
 
     return (
         <div className="min-h-screen bg-[#2b2b31]">
