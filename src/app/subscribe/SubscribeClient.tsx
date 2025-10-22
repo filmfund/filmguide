@@ -34,7 +34,7 @@ export default function SubscribeClient() {
                             </div>
                             <div className="flex items-center gap-3 text-[#999999]">
                                 <span className="text-[#E1D486]">✦</span>
-                                <span>Access Filmmaker's Guide</span>
+                                <span>Access Filmmaker&apos;s Guide</span>
                             </div>
                             <div className="flex items-center gap-3 text-[#999999]">
                                 <span className="text-[#E1D486]">✦</span>
