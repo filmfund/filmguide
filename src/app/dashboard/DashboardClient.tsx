@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from "next/image";
 import ChatInterface from '@/components/ChatInterface';
+import BackgroundLogo from '@/components/BackgroundLogo';
 
 const MOCK_SUBSCRIBED = false;
 
@@ -19,10 +20,9 @@ export default function DashboardClient() {
                         <div className="bg-[#2b2b31] border-2 border-[#BB9867] rounded-xl p-6">
                             <h3 className="text-[#E1C586] font-semibold mb-3">Want to watch a movie about blockchain?</h3>
                             <p className="text-[#999999] text-sm">
-                                The What to Watch agent is your personal AI film curator — trained on hundreds of blockchain-related titles, it instantly recommends the best movies about Bitcoin, Ethereum, NFTs, Web3 innovation, crypto scams, and meaningful decentralized projects.
+                                The What to Watch agent is your personal AI film curator - trained on hundreds of blockchain-related titles, it instantly recommends the best movies about Bitcoin, Ethereum, NFTs, Web3 innovation, crypto scams, and meaningful decentralized projects.
                             </p>
                         </div>
-
                         <ChatInterface />
                     </div>
                     <div className="flex flex-col gap-8">
@@ -61,7 +61,7 @@ export default function DashboardClient() {
                             <div className="bg-[#2b2b31] border-2 border-[#E71111] rounded-xl p-8 opacity-60 cursor-not-allowed relative">
                                 <div className="flex items-start justify-between mb-2">
                                     <h3 className="text-2xl font-bold text-[#999999]">
-                                        not available without subscription / guide for a filmmaker in the world of blockchain
+                                        Subscribe to unlock exclusive filmmaker guides
                                     </h3>
                                     <span className="px-3 py-1 bg-[#666666] text-[#2b2b31] text-xs font-semibold rounded-full">
                                         Premium
