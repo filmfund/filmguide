@@ -1,3 +1,5 @@
+![Guide2Film3](/public/guide2film3.gif)
+
 # Guide2Film3
 
 The web-app for Guide2Film3. This project is made for the ETH Global Hackathon 2025.
