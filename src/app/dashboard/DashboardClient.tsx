@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import ChatInterface from '@/components/ChatInterface';
-
+import Image from 'next/image';
 const MOCK_SUBSCRIBED = false;
 
 export default function DashboardClient() {
@@ -55,23 +55,28 @@ export default function DashboardClient() {
                                 </div>
                             </Link>
                         ) : (
-                            <div className="bg-[#2b2b31] border-2 border-[#E71111] rounded-xl p-8 opacity-60 cursor-not-allowed relative">
-                                <div className="flex items-start justify-between mb-2">
-                                    <h3 className="text-2xl font-bold text-[#999999]">
-                                        Subscribe to unlock exclusive filmmaker guides
-                                    </h3>
-                                    <span className="px-3 py-1 bg-[#666666] text-[#2b2b31] text-xs font-semibold rounded-full">
-                                        Premium
-                                    </span>
+                            <div className="bg-[#2b2b31] border-2 border-[#E71111] rounded-xl p-4 opacity-60 cursor-not-allowed relative">
+                                <div className="flex items-center justify-between gap-2">
+                                    <div className="flex-1">
+                                        <p className="text-[#666666] mb-4 text-lg font-semibold">
+                                            <span className="text-[#E71111]">Filmmaker’s Guide to Blockchain and Web3 –</span> A living manual for creators exploring decentralized tools, funding, and distribution.
+                                        </p>
+                                        <Link href="/subscribe">
+                                            <button className="px-6 py-2 bg-[#E71111] text-white rounded-lg font-semibold hover:bg-[#A60E0E] transition-colors">
+                                                Subscribe to Unlock
+                                            </button>
+                                        </Link>
+                                    </div>
+                                    <div className="rounded-xl overflow-hidden flex-shrink-0">
+                                        <Image
+                                            src="/subscriptionimage.png"
+                                            alt="Subscription"
+                                            width={200}
+                                            height={150}
+                                            className="object-cover"
+                                        />
+                                    </div>
                                 </div>
-                                <p className="text-[#666666] mb-4">
-                                    Subscribe to unlock exclusive filmmaker guides
-                                </p>
-                                <Link href="/subscribe">
-                                    <button className="px-6 py-2 bg-[#E71111] text-white rounded-lg font-semibold hover:bg-[#A60E0E] transition-colors">
-                                        Subscribe to Unlock
-                                    </button>
-                                </Link>
                             </div>
                         )}
 
