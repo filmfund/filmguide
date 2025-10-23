@@ -55,7 +55,7 @@ function getAPIUrlForChain(chainId: number): string | null {
     }
 }
 
-function FetchTokenInfo(address: string, chainId: number) : Promise<BlockscoutTokenResponse | null> {
+function FetchTokenInfo(address: string, chainId: number): Promise<BlockscoutTokenResponse | null> {
     const apiBaseUrl = getAPIUrlForChain(chainId);
     if (!apiBaseUrl) {
         console.error(`Unsupported chain ID: ${chainId}`);
@@ -79,8 +79,7 @@ function FetchTokenInfo(address: string, chainId: number) : Promise<BlockscoutTo
         });
 }
 
-// Component to display a single film token
-function FilmToken(tokenInfo: TokenInfo) : React.ReactElement {
+function FilmToken(tokenInfo: TokenInfo): React.ReactElement {
     const [tokenData, setTokenData] = React.useState<BlockscoutTokenResponse | null>(null);
 
     React.useEffect(() => {
@@ -90,39 +89,79 @@ function FilmToken(tokenInfo: TokenInfo) : React.ReactElement {
             });
     }, [tokenInfo.address, tokenInfo.chainId]);
 
-
     return (
-        <div className="film-token-card border border-gray-300 rounded-lg p-4 mb-4">
-            <h2 className="text-xl font-bold mb-2">{tokenInfo.movieName} ({tokenInfo.tokenCollectionName})</h2>
-            <p><strong>Director:</strong> {tokenInfo.director}</p>
-            <p><strong>Token Symbol:</strong> {tokenInfo.tokenSymbol}</p>
-            <p><strong>Token Type:</strong> {tokenInfo.tokenType}</p>
-            <p><strong>Chain ID:</strong> {tokenInfo.chainId}</p>
-            <p><strong>Contract Address:</strong> {tokenInfo.address}</p>
-            {tokenInfo.website && (
-                <p>
-                    <a href={tokenInfo.website} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">
-                        Official Website
-                    </a>
-                </p>
-            )}
-            {tokenInfo.openSeaUrl && (
-                <p>
-                    <a href={tokenInfo.openSeaUrl} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">
-                        View on OpenSea
-                    </a>
-                </p>
-            )}
-            {tokenData ? (
-                <div className="token-data mt-2">
-                    <p><strong>Token Name:</strong> {tokenData.name}</p>
-                    <p><strong>Token Symbol:</strong> {tokenData.symbol}</p>
-                    <p><strong>Token Type:</strong> {tokenData.type}</p>
-                    <p><strong>Address Hash:</strong> {tokenData.address_hash}</p>
+        <div className="bg-[#1a1a1f] rounded-xl overflow-hidden border-2 border-[#BB9867] hover:border-[#E1D486] transition-all">
+
+            <div className="p-4 bg-[#2b2b31]">
+                <h3 className="text-[#E1C586] font-bold text-xl mb-1">{tokenInfo.movieName}</h3>
+                <p className="text-[#999999] text-sm mb-3">({tokenInfo.tokenCollectionName})</p>
+                <div className="mb-4">
+                    <p className="text-[#999999] text-sm">
+                        <span className="font-semibold">Director:</span> {tokenInfo.director}
+                    </p>
                 </div>
-            ) : (
-                <p>Loading token data...</p>
-            )}
+
+                <div className="space-y-2 text-sm mb-4 p-3 bg-[#1a1a1f] rounded border border-[#BB9867]">
+                    <div className="flex justify-between">
+                        <span className="text-[#999999]">Token Symbol:</span>
+                        <span className="text-[#E1D486] font-semibold">{tokenInfo.tokenSymbol || 'N/A'}</span>
+                    </div>
+                    <div className="flex justify-between">
+                        <span className="text-[#999999]">Token Type:</span>
+                        <span className="text-[#E1C586]">{tokenInfo.tokenType}</span>
+                    </div>
+                    <div className="flex justify-between">
+                        <span className="text-[#999999]">Chain ID:</span>
+                        <span className="text-[#E1C586]">{tokenInfo.chainId}</span>
+                    </div>
+                </div>
+                <div className="mb-4 text-xs">
+                    <p className="text-[#999999] mb-1">Contract Address:</p>
+                    <p className="text-[#E1D486] font-mono" title={tokenInfo.address}>{tokenInfo.address.slice(0, 10)}...{tokenInfo.address.slice(-8)}</p>
+                </div>
+
+                {tokenData ? (
+                    <div className="bg-[#1a1a1f] rounded p-3 mb-4 border border-[#BB9867]">
+                        <div className="space-y-1 text-xs">
+                            <div className="flex justify-between">
+                                <span className="text-[#999999]">Token Name:</span>
+                                <span className="text-[#E1C586]">{tokenData.name}</span>
+                            </div>
+                            <div className="flex justify-between">
+                                <span className="text-[#999999]">Symbol:</span>
+                                <span className="text-[#E1C586]">{tokenData.symbol}</span>
+                            </div>
+                            <div className="flex justify-between">
+                                <span className="text-[#999999]">Type:</span>
+                                <span className="text-[#E1C586]">{tokenData.type}</span>
+                            </div>
+                            <div className="mt-2 pt-2 border-t border-[#BB9867]">
+                                <p className="text-[#999999] mb-1">Address Hash:</p>
+                                <p className="text-[#E1D486] font-mono break-words" title={tokenData.address_hash}>
+                                    {tokenData.address_hash.slice(0, 10)}...{tokenData.address_hash.slice(-8)}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                ) : (
+                    <p className="text-[#999999] text-xs mb-4 italic">Loading blockchain data...</p>
+                )}
+
+                <div className="space-y-2">
+                    {tokenInfo.website && (
+                        <a href={tokenInfo.website} target="_blank" rel="noopener noreferrer"
+                            className="block w-full py-2 px-4 bg-[#E1C586] text-[#2b2b31] rounded-lg font-semibold hover:bg-[#E1D486] transition-colors text-center text-sm">
+                            Official Website
+                        </a>
+                    )}
+                    {tokenInfo.openSeaUrl && (
+                        <a href={tokenInfo.openSeaUrl} target="_blank" rel="noopener noreferrer"
+                            className="block w-full py-2 px-4 bg-[#BB9867] text-[#2b2b31] rounded-lg font-semibold hover:bg-[#E1C586] transition-colors text-center text-sm">
+                            View on OpenSea
+                        </a>
+                    )}
+                </div>
+            </div>
         </div>
     );
 }
@@ -134,11 +173,11 @@ function FilmTokensList(): React.ReactElement {
         queryFn: () => fetch('/api/tokens').then(r => r.json()),
     })
 
-    if (isPending) return <span>Loading...</span>
-    if (error) return <span>Oops!</span>
+    if (isPending) return <div className="text-center text-[#999999] py-12">Loading...</div>
+    if (error) return <div className="text-center text-[#E71111] py-12">Oops!</div>
 
     return (
-        <div className="film-tokens-list">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {data.map((tokenInfo, index) => (
                 <FilmToken key={index} {...tokenInfo} />
             ))}
