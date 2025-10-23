@@ -25,8 +25,8 @@ export default function DashboardClient() {
                     <div className="flex flex-col gap-8">
                         <Link href="/tokens">
                             <div className="bg-[#2b2b31] border-2 border-[#BB9867] rounded-xl p-8 hover:border-[#E1D486] transition-all cursor-pointer group">
-                                <h3 className="text-2xl font-bold text-[#E1C586] mb-2">Film tokens comparison</h3>
-                                <p className="text-[#999999]">Compare and explore tokens</p>
+                                <h3 className="text-2xl font-bold text-[#E1C586] mb-2">Film Tokens Insider</h3>
+                                <p className="text-[#999999]">Contribute directly to emerging film projects. Every subscription or micro-donation helps real creators develop their blockchain-powered stories.</p>
                                 <div className="mt-4 text-[#E1D486] font-semibold flex items-center gap-2">
                                     Explore Tokens
                                     <span className="group-hover:translate-x-2 transition-transform">→</span>
