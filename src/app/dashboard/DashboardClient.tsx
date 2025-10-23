@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import ChatInterface from '@/components/ChatInterface';
 import Image from 'next/image';
-const MOCK_SUBSCRIBED = false;
+const MOCK_SUBSCRIBED = true;
 
 export default function DashboardClient() {
     const [isSubscribed] = useState(MOCK_SUBSCRIBED);
@@ -35,7 +35,7 @@ export default function DashboardClient() {
                         </Link>
 
                         {isSubscribed ? (
-                            <Link href="/film-makers-guide">
+                            <Link href="/filmmakersguide">
                                 <div className="bg-[#2b2b31] border-2 border-[#BB9867] rounded-xl p-8 hover:border-[#E1D486] transition-all cursor-pointer group">
                                     <div className="flex items-start justify-between mb-2">
                                         <h3 className="text-2xl font-bold text-[#E1C586]">
