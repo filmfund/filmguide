@@ -31,7 +31,7 @@ export default function ChatInterface() {
         <div className="border-2 border-[#BB9867] rounded-xl h-[600px] flex flex-col bg-[#2b2b31]">
             <div className="p-4 border-b-2 border-[#BB9867] flex justify-between items-center">
                 <div>
-                    <h3 className="text-[#E1C586] font-bold">AI Film Agent</h3>
+                    <h3 className="text-[#E1C586] font-bold">What to Watch</h3>
                     <p className="text-[#999999] text-xs">{FREE_LIMIT - count} messages left</p>
                 </div>
                 <Link href="/subscribe" className="px-3 py-1 bg-[#85840D] text-[#2b2b31] text-xs rounded-full">
