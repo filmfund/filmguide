@@ -31,7 +31,7 @@ export default function ChatInterface() {
         <div className="border-2 border-[#BB9867] rounded-xl h-[600px] flex flex-col bg-[#2b2b31]">
             <div className="p-4 border-b-2 border-[#BB9867] flex justify-between items-center">
                 <div>
-                    <h3 className="text-[#E1C586] font-bold">What to Watch</h3>
+                    <h3 className="text-[#E1C586] font-bold">What to Watch AI Agent</h3>
                     <p className="text-[#999999] text-xs">{FREE_LIMIT - count} messages left</p>
                 </div>
                 <div className="flex gap-2">
@@ -48,7 +48,7 @@ export default function ChatInterface() {
                 {messages.length === 0 && (
                     <div className="text-center py-12">
                         <p className="text-[#999999] text-sm mb-4">
-                            Ask me anything about blockchain films, Web3 cinema, or get personalized movie recommendations!
+                            Let our AI curator guide you through the best films and documentaries that explain Web3, Bitcoin, Ethereum, and the world of crypto storytelling.
                         </p>
                     </div>
                 )}
@@ -84,7 +84,7 @@ export default function ChatInterface() {
                         onChange={e => setInput(e.target.value)}
                         onKeyPress={e => e.key === 'Enter' && send()}
                         disabled={limitHit}
-                        placeholder="Ask about films..."
+                        placeholder="I want to watch something about Vitalik"
                         className="flex-1 bg-[#3a3a40] text-[#E1C586] border-2 border-[#BB9867] rounded-lg px-4 py-2 text-sm"
                     />
                     <button

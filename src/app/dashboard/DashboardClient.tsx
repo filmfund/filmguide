@@ -93,7 +93,7 @@ export default function DashboardClient() {
 
                         <Link href="/support-film-maker">
                             <div className="bg-[#2b2b31] border-2 border-[#BB9867] rounded-xl p-8 hover:border-[#E1D486] transition-all cursor-pointer group">
-                                <h3 className="text-2xl font-bold text-[#E1C586] mb-2">support a filmmaker</h3>
+                                <h3 className="text-2xl font-bold text-[#E1C586] mb-2">Support a filmmaker</h3>
                                 <p className="text-[#999999]">
                                     Directly contribute to emerging blockchain film projects
                                 </p>

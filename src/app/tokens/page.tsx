@@ -12,8 +12,8 @@ export default function TokensPage(): React.ReactElement {
         <div className="min-h-screen bg-[#2b2b31]">
             <main className="container mx-auto px-6 py-8">
                 <div className="mb-8">
-                    <h1 className="text-4xl font-bold text-[#E1C586] mb-3">Film Tokens</h1>
-                    <p className="text-[#999999]">Discover blockchain-powered films</p>
+                    <h1 className="text-4xl font-bold text-[#E1C586] mb-3">Film Tokens Insider</h1>
+                    <p className="text-[#999999]">Where crypto meets cinema - track, compare, and learn from real tokenized film projects.</p>
                 </div>
                 <FilmTokensList />
             </main>
