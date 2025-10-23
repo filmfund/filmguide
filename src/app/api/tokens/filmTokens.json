@@ -1,5 +1,5 @@
 [
-    {
+{
         "chainId": 1,
         "address": "0x3b3bc9b1dd9f3c8716fff083947b8769e2ff9781",
         "movieName": "ANTARA",
@@ -8,5 +8,125 @@
         "openSeaUrl": "https://opensea.io/collection/arabian-camels",
         "director": "Simon West",
         "website": "https://www.antaramovie.com/"
+    },
+    {
+        "chainId": 1,
+        "address": "0xd4d871419714b778ebec2e22c7c53572b573706e",
+        "movieName": "Stoner Cats serie",
+        "tokenCollectionName": "Stoner Cats NFT",
+        "tokenType": "NFT",
+        "openSeaUrl": "https://opensea.io/collection/stoner-cats-official",
+        "director": "Ash Brennan",
+        "website": "https://www.stonercats.com/"
+    },
+    {
+        "chainId": 1,
+        "address": "0x1acc1f7d7d8dd97a9e8d681ac8fb743af42c4ddb",
+        "movieName": "FLINCH",
+        "tokenCollectionName": "Flinch Characters",
+        "tokenType": "NFT",
+        "openSeaUrl": "https://opensea.io/collection/flinch-characters",
+        "director": "Cameron Van Hoy",
+        "website": "https://www.flinchthemovie.com/"
+    },
+    {
+        "chainId": 1,
+        "address": "0xd4f11c30078d352354c0b17eaa8076c825416493",
+        "movieName": "FLINCH",
+        "tokenCollectionName": "Flinch EP Pass",
+        "tokenType": "NFT",
+        "openSeaUrl": "https://opensea.io/collection/flinchep",
+        "director": "Cameron Van Hoy",
+        "website": "https://www.flinchthemovie.com/"
+    },
+    {
+        "chainId": 1,
+        "address": "0xdcb68d47423d244319a5101eae78716affba8655",
+        "movieName": "CALLADITA",
+        "tokenCollectionName": "Calladita Collection",
+        "tokenType": "NFT",
+        "openSeaUrl": "https://opensea.io/collection/calladita-collection",
+        "director": "Migel Faus",
+        "website": "https://www.calladitafilm.com/"
+    },
+    {
+        "chainId": 1,
+        "address": "0xcb1021080b61dac7032618de925a62176cbc8372",
+        "movieName": "I LIVE HERE NOW",
+        "tokenCollectionName": "Keepers of the Inn",
+        "tokenType": "NFT",
+        "openSeaUrl": "https://opensea.io/collection/keepers-of-the-inn",
+        "director": "Julia Pacino",
+        "website": "https://www.keepersoftheinn.art/"
+    },
+    {
+        "chainId": 1,
+        "address": "0x532e5efded726c6dde5228f35d805f531c14b0eb",
+        "movieName": "OSCAR HALEY & THE GREAT BEYOND",
+        "tokenCollectionName": "Non Fungible Films",
+        "tokenType": "NFT",
+        "openSeaUrl": "https://opensea.io/collection/nffcc",
+        "director": "Cameron Moulene",
+        "website": "https://www.nonfungiblefilms.io/"
+    },
+    {
+        "chainId": 1,
+        "address": "0x9f1f2696f4e8f138c1cc92361960665cb2d4617e",
+        "movieName": "OSCAR HALEY & THE GREAT BEYOND",
+        "tokenCollectionName": "Non Fungible Films",
+        "tokenType": "NFT",
+        "openSeaUrl": "https://opensea.io/collection/nff-studio",
+        "director": "Cameron Moulene",
+        "website": "https://www.nonfungiblefilms.io/"
+    },
+    {
+        "chainId": 1,
+        "address": "0x3ed0814be6c0679a89ca6ed323e475ca66a73743",
+        "movieName": "OSCAR HALEY & THE GREAT BEYOND",
+        "tokenCollectionName": "Non Fungible Films",
+        "tokenType": "NFT",
+        "openSeaUrl": "https://opensea.io/collection/nff-oscar-haley",
+        "director": "Cameron Moulene",
+        "website": "https://www.nonfungiblefilms.io/"
+    },
+    {
+        "chainId": 1,
+        "address": "0xc314f59a2e1559007c98bfdd36658866a2b7be59",
+        "movieName": "He Who Lives In Hidden Lakes",
+        "tokenCollectionName": "Cryptid by Hidden Ones ",
+        "tokenType": "NFT",
+        "openSeaUrl": "https://opensea.io/collection/hidden-ones",
+        "director": "Zach Lona",
+        "website": "https://linktr.ee/hiddenones"
+    },
+    {
+        "chainId": 1,
+        "address": "0x4de34255fd0d9e09d1df56de5d148c8d33e186f3",
+        "movieName": "Buscando America",
+        "tokenCollectionName": "Buscando America",
+        "tokenType": "NFT",
+        "openSeaUrl": "https://opensea.io/collection/buscandoamerica",
+        "director": "Alex Ulises",
+        "website": "https://www.buscandoamerica.co/"
+    },
+    {
+        "chainId": 1,
+        "address": "0x495f947276749ce646f68ac8c248420045cb7b5e",
+        "movieName": "NFTme",
+        "tokenCollectionName": "NFTme TV series",
+        "tokenType": "NFT",
+        "openSeaUrl": "https://opensea.io/collection/nftme",
+        "director": "Johny Caplan",
+        "website": "https://www.nftme.tv/"
+    },
+    {
+        "chainId": 1,
+        "address": "0x748e8111d55aebc16008ce5b1b1bb0aa224cb8a1",
+        "movieName": "Roots In Ego",
+        "tokenCollectionName": "Roots In Ego",
+        "tokenType": "NFT",
+        "openSeaUrl": "https://opensea.io/collection/rootsinego",
+        "director": "113kw",
+        "website": "https://rootsinego.cz"
     }
 ]
