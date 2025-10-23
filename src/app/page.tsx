@@ -87,7 +87,7 @@ export default function Home() {
               <div className="group bg-[#2b2b31] rounded-2xl p-8 cursor-pointer hover:border-[#E1D486] transition-all duration-200 border-2 border-[#BB9867] shadow-xl">
                 <h3 className="text-2xl font-bold text-[#E1C586] mb-2">Support a Filmmaker</h3>
                 <p className="text-[#999999]">
-                  Directly support independent filmmakers
+                  Contribute directly to emerging film projects. Every subscription or micro-donation helps real creators develop their blockchain-powered stories.
                 </p>
                 <div className="mt-4 text-[#E1D486] font-semibold flex items-center gap-2">
                   Learn More

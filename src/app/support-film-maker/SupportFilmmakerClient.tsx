@@ -65,7 +65,7 @@ export default function SupportFilmmakerClient() {
                                             Project description and details about the film...
                                         </p>
                                         <a
-                                            href="https://www.imdb.com/"
+                                            href="https://www.imdb.com/name/nm6663704/"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="inline-flex items-center gap-2 px-4 py-2 bg-[#E1D486] text-[#2b2b31] rounded-lg font-semibold hover:bg-[#E1C586] transition-colors"
@@ -102,7 +102,16 @@ export default function SupportFilmmakerClient() {
                             )}
                             <div className="bg-[#E1C586] rounded-xl p-4">
                                 <p className="text-[#2b2b31] text-xs leading-relaxed">
-                                    motivational text about how great is to support a filmmaker.
+                                    A part of every subscription is shared with verified filmmakers - fairly divided among active projects on the platform.
+                                </p>
+                                <p className="text-[#2b2b31] text-xs leading-relaxed">
+                                    Today, there’s one project you can support directly, but soon this space will open for submissions from independent creators at different stages of development: from early pitches to completed scripts.
+                                </p>
+                                <p className="text-[#2b2b31] text-xs leading-relaxed">
+                                    As the system evolves, supporters will unlock unique tiers of engagement - reading scripts, accessing behind-the-scenes updates, or even joining live calls with the film crew.
+                                </p>
+                                <p className="text-[#2b2b31] text-xs leading-relaxed">
+                                    Guide2Film3 transforms film support from a passive donation into an immersive Web3 collaboration.
                                 </p>
                             </div>
                         </div>

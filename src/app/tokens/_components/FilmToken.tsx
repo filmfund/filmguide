@@ -115,10 +115,6 @@ function FilmToken(tokenInfo: TokenInfo): React.ReactElement {
                         <span className="text-[#E1C586]">{tokenInfo.chainId}</span>
                     </div>
                 </div>
-                <div className="mb-4 text-xs">
-                    <p className="text-[#999999] mb-1">Contract Address:</p>
-                    <p className="text-[#E1D486] font-mono" title={tokenInfo.address}>{tokenInfo.address.slice(0, 10)}...{tokenInfo.address.slice(-8)}</p>
-                </div>
 
                 {tokenData ? (
                     <div className="bg-[#1a1a1f] rounded p-3 mb-4 border border-[#BB9867]">
@@ -136,7 +132,7 @@ function FilmToken(tokenInfo: TokenInfo): React.ReactElement {
                                 <span className="text-[#E1C586]">{tokenData.type}</span>
                             </div>
                             <div className="mt-2 pt-2 border-t border-[#BB9867]">
-                                <p className="text-[#999999] mb-1">Address Hash:</p>
+                                <p className="text-[#999999] mb-1">Contract Address:</p>
                                 <p className="text-[#E1D486] font-mono break-words" title={tokenData.address_hash}>
                                     {tokenData.address_hash.slice(0, 10)}...{tokenData.address_hash.slice(-8)}
                                 </p>
