@@ -41,7 +41,7 @@ export default function DashboardClient() {
                                         <div className="flex-1">
                                             <div className="flex items-start justify-between mb-2">
                                                 <p className="text-[#999999] text-lg font">
-                                                    <span className="text-[#E1D486] font-semibold">Filmmaker's Guide to Blockchain and Web3 –</span> A living manual for creators exploring decentralized tools, funding, and distribution.
+                                                    <span className="text-[#E1D486] font-semibold">Filmmaker&apos;s Guide to Blockchain and Web3 –</span> A living manual for creators exploring decentralized tools, funding, and distribution.
                                                 </p>
 
                                             </div>
