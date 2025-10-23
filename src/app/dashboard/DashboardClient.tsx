@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import ChatInterface from '@/components/ChatInterface';
 import Image from 'next/image';
-const MOCK_SUBSCRIBED = true;
+const MOCK_SUBSCRIBED = false;
 
 export default function DashboardClient() {
     const [isSubscribed] = useState(MOCK_SUBSCRIBED);
