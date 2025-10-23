@@ -16,10 +16,10 @@ export default function Header() {
     const logoAltText = "Guide2Film3 Logo";
     const logoWidth = 65;
     const logoHeight = 65;
-    
+
     const fallbackImage = (
         <Image
-            src="/background_logo.png"
+            src="/guide2film3.png"
             alt={logoAltText}
             width={logoWidth}
             height={logoHeight}
