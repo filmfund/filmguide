@@ -35,7 +35,7 @@ export default function DashboardClient() {
                         </Link>
 
                         {isSubscribed ? (
-                            <Link href="/film-makers-guide">
+                            <Link href="/filmmakersguide">
                                 <div className="bg-[#2b2b31] border-2 border-[#BB9867] rounded-xl p-8 hover:border-[#E1D486] transition-all cursor-pointer group">
                                     <div className="flex items-start justify-between mb-2">
                                         <h3 className="text-2xl font-bold text-[#E1C586]">

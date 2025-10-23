@@ -6,7 +6,7 @@ import Link from 'next/link';
 const FREE_LIMIT = 3;
 
 export default function ChatInterface() {
-    const [messages, setMessages] = useState<{ role: string; text: string }[]>([]);
+    const [messages, setMessages] = useState<{ role: string; text: string; hasMore?: boolean }[]>([]);
     const [input, setInput] = useState('');
     const [count, setCount] = useState(0);
 
@@ -34,9 +34,14 @@ export default function ChatInterface() {
                     <h3 className="text-[#E1C586] font-bold">What to Watch</h3>
                     <p className="text-[#999999] text-xs">{FREE_LIMIT - count} messages left</p>
                 </div>
-                <Link href="/subscribe" className="px-3 py-1 bg-[#85840D] text-[#2b2b31] text-xs rounded-full">
-                    Upgrade
-                </Link>
+                <div className="flex gap-2">
+                    <Link href="/subscribe" className="px-3 py-1 bg-[#85840D] text-[#2b2b31] text-xs rounded-full">
+                        Upgrade
+                    </Link>
+                    <Link href="/whattowatch" className="px-3 py-1 bg-[#E1C586] text-[#2b2b31] text-xs rounded-full hover:bg-[#E1D486] transition-colors">
+                        Extend →
+                    </Link>
+                </div>
             </div>
 
             <div className="flex-1 overflow-y-auto p-4 space-y-3">
@@ -52,7 +57,12 @@ export default function ChatInterface() {
                     <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                         <div className={`rounded-lg p-3 max-w-[80%] ${m.role === 'user' ? 'bg-[#E1C586] text-[#2b2b31]' : 'bg-[#3a3a40] text-[#999999]'
                             }`}>
-                            {m.text}
+                            <p className="text-sm">{m.text}</p>
+                            {m.hasMore && (
+                                <Link href="/whattowatch" className="text-[#E1D486] text-xs mt-2 inline-block hover:underline">
+                                    Learn more →
+                                </Link>
+                            )}
                         </div>
                     </div>
                 ))}
