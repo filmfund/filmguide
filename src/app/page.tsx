@@ -56,7 +56,7 @@ export default function Home() {
               <div className="group bg-[#E1C586] rounded-2xl p-8 cursor-pointer hover:bg-[#E1D486] transition-all duration-200 shadow-xl border-2 border-[#BB9867]">
                 <h3 className="text-2xl font-bold text-[#2b2b31] mb-2">Try the App</h3>
                 <p className="text-[#2b2b31]">
-                  Explore film tokens and try the app
+                  Step into decentralized cinema - watch, learn, and support filmmakers shaping the blockchain era.
                 </p>
                 <div className="mt-4 text-[#85840D] font-semibold flex items-center gap-2">
                   Get Started
@@ -66,15 +66,15 @@ export default function Home() {
             </Link>
 
             <Link href="/subscribe">
-              <div className="group bg-[#2b2b31] rounded-2xl p-8 cursor-pointer hover:border-[#E1D486] transition-all duration-200 border-2 border-[#BB9867] shadow-xl">
+              <div className="group bg-[#2b2b31] rounded-2xl p-8 cursor-pointer hover:border-[#E71111] transition-all duration-200 border-2 border-[#BB9867] shadow-xl">
                 <div className="flex items-start justify-between mb-2">
-                  <h3 className="text-2xl font-bold text-[#E71111]">Subscribe</h3>
+                  <h3 className="text-2xl font-bold text-[#E71111]">Subscribe - Get the Full Experience</h3>
                   <span className="px-3 py-1 bg-[#85840D] text-[#2b2b31] text-xs font-semibold rounded-full">
                     Premium
                   </span>
                 </div>
                 <p className="text-[#999999]">
-                  Get the full experience
+                  Access premium features, deeper film data, and direct-to-creator support — powered by PayPal and Web3 integration.
                 </p>
                 <div className="mt-4 text-[#E71111] font-semibold flex items-center gap-2">
                   View Plans

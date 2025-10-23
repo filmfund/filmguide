@@ -29,7 +29,7 @@ export default function WhatToWatchClient() {
 
                 <div className="max-w-4xl mx-auto bg-[#2b2b31] border-2 border-[#BB9867] rounded-xl h-[700px] flex flex-col">
                     <div className="p-4 border-b-2 border-[#BB9867] flex justify-between">
-                        <h3 className="text-[#E1C586] font-bold">What to Watch Agent</h3>
+                        <h3 className="text-[#E1C586] font-bold">What to Watch AI Agent</h3>
                         <Link href="/dashboard" className="text-[#E1D486] text-sm hover:underline">
                             ← Back
                         </Link>
@@ -38,8 +38,10 @@ export default function WhatToWatchClient() {
                     <div className="flex-1 overflow-y-auto p-4 space-y-3">
                         {messages.length === 0 && (
                             <div className="text-center py-12">
+                                <h3 className="text-[#E1C586] text-lg">Tell me what mood you’re in - I’ll find the right blockchain movie</h3>
                                 <p className="text-[#999999] text-sm mb-4">
-                                    Ask me anything about blockchain films, Web3 cinema, or get personalized movie recommendations!
+                                    Whether you want to impress a date, spark curiosity at dinner, or dive deep into the world of Bitcoin and Ethereum, our AI curator has you covered.
+                                    From indie gems to full-length films and teasers, discover stories that make crypto culture cinematic.
                                 </p>
                             </div>
                         )}
@@ -60,7 +62,7 @@ export default function WhatToWatchClient() {
                                 value={input}
                                 onChange={e => setInput(e.target.value)}
                                 onKeyPress={e => e.key === 'Enter' && send()}
-                                placeholder="Ask about films..."
+                                placeholder="I want to watch something about Vitalik"
                                 className="flex-1 bg-[#3a3a40] text-[#E1C586] border-2 border-[#BB9867] rounded-lg px-4 py-2"
                             />
                             <button

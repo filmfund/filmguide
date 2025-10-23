@@ -24,7 +24,7 @@ export default function FilmmakersGuideClient() {
         <div className="min-h-screen bg-[#2b2b31]">
             <main className="container mx-auto px-6 py-8">
                 <h1 className="text-3xl font-bold text-[#E1C586] text-center mb-6">
-                    Filmmaker&apos;s Blockchain Guide
+                    Filmmaker&apos;s Guide to Blockchain and Web3
                 </h1>
 
                 <div className="max-w-4xl mx-auto bg-[#2b2b31] border-2 border-[#BB9867] rounded-xl h-[700px] flex flex-col">
