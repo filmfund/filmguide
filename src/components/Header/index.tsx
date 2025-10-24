@@ -44,13 +44,12 @@ export default function Header() {
     }
 
     return (
-        <header className="border-b border-[#A60E0E] bg-[#2b2b31]">
+        <header className="border-b-4 border-[#A60E0E] bg-[#54010b]">
             <div className="container mx-auto px-6 py-4 flex items-center justify-between">
                 <Link href={logoLink} className="flex items-center gap-4 hover:opacity-80 transition-opacity cursor-pointer">
                     {logoImageElement}
                     <div>
-                        <h1 className="text-2xl font-bold text-[#E1C586]">Guide2Film3</h1>
-                        <p className="font-semibold text-sm text-[#999999]">aka Guide to Blockchain Cinema by <a href="http://filmfund.113kw.net/" className="text-[#E1C586]">FilmFund.ETH</a> . AI-powered Web3 guide to blockchain films, funding, and decentralized cinema.</p>
+                        <h5 className="text-2xl font-bold text-[#E1C586]" style={{ fontFamily: 'ITC Benguiat' }}>GUIDE2FILM3</h5>
                     </div>
                 </Link>
                 <WalletConnect />

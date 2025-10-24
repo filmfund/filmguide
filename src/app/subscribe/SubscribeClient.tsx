@@ -22,7 +22,7 @@ export default function SubscribeClient() {
                                     Subscribing to Guide2Film3 unlocks the complete decentralized cinema experience.
                                 </p>
                                 <p>
-                                    Your monthly $4.99 contribution provides unlimited AI-powered film recommendations,
+                                    Your monthly $8.00 contribution provides unlimited AI-powered film recommendations,
                                     access to The Filmmaker&apos;s Guide, and deeper insights into blockchain-based film tokens.
                                 </p>
                                 <p>
@@ -43,7 +43,7 @@ export default function SubscribeClient() {
                         <div className="bg-[#2b2b31] border-2 border-[#BB9867] rounded-xl p-6">
                             <div className="text-center mb-6">
                                 <div className="text-4xl font-bold text-[#E1C586] mb-2">
-                                    $4.99
+                                    $8.00
                                     <span className="text-lg text-[#999999]">/month</span>
                                 </div>
                                 <p className="text-[#999999] text-xs">Cancel anytime</p>

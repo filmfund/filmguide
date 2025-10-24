@@ -24,7 +24,7 @@ export default function FilmmakersGuideClient() {
         <div className="min-h-screen bg-[#2b2b31]">
             <main className="container mx-auto px-6 py-8">
                 <h1 className="text-3xl font-bold text-[#E1C586] text-center mb-6">
-                    Filmmaker&apos;s Guide to Blockchain and Web3
+                    Filmmaker&apos;s Guide to blockchain and web3
                 </h1>
 
                 <div className="max-w-4xl mx-auto bg-[#2b2b31] border-2 border-[#BB9867] rounded-xl h-[700px] flex flex-col">
@@ -40,7 +40,7 @@ export default function FilmmakersGuideClient() {
                             <div className="text-center py-12">
                                 <h3 className="text-[#E1C586] text-lg">Think of me as your no-nonsense AI mentor - I’ve seen every hype cycle and can tell you which projects deliver and which don’t. I’ll help you find working DAOs, grants, streaming platforms, and communities that actually support filmmakers.</h3>
                                 <p className="text-[#999999] text-sm mb-4">
-                                    Ask me for real advice - I can name funding DAOs, Web3 festivals, and tokenized VOD platforms that are worth your time (and the ones that aren’t).
+                                    Ask me for real advice - I can name funding DAOs, web3 festivals, and tokenized VOD platforms that are worth your time (and the ones that aren’t).
                                 </p>
                             </div>
                         )}
