@@ -41,7 +41,7 @@ export default function FilmmakersGuideClient() {
                     <div className="bg-[#2b2b31] border-2 border-[#BB9867] rounded-lg p-4 text-center">
                         <h3 className="text-[#E1C586] font-semibold mb-3">Your no-nonsense AI mentor for navigating the new era of filmmaking</h3>
                         <p className="text-[#999999] text-sm">
-                            Think of me as your no-nonsense AI mentor — I&apos;ve seen every hype cycle and can tell you which projects deliver and which don&apos;t. I&apos;ll help you find working DAOs, grants, streaming platforms, and communities that actually support filmmakers.
+                            Think of me as your no-nonsense AI mentor - I&apos;ve seen every hype cycle and can tell you which projects deliver and which don&apos;t. I&apos;ll help you find working DAOs, grants, streaming platforms, and communities that actually support filmmakers.
                         </p>
                     </div>
                 </div>
@@ -56,7 +56,7 @@ export default function FilmmakersGuideClient() {
                                 }
                             </p>
                         </div>
-                        <Link href="/dashboard" className="px-3 py-1 bg-[#E1C586] text-[#2b2b31] text-xs rounded-full hover:bg-[#E1D486] transition-colors">
+                        <Link href="/dashboard" className="px-3 py-1 bg-[#E1C586] text-[#2b2b31] text-sm rounded-full hover:bg-[#E1D486] transition-colors">
                             ← Back
                         </Link>
                     </div>
@@ -104,7 +104,7 @@ export default function FilmmakersGuideClient() {
                             <button
                                 onClick={send}
                                 disabled={limitReached || !input.trim()}
-                                className={`}px-6 py-2 bg-[#E1C586] text-[#2b2b31] rounded-lg font-semibold hover:bg-[#E1D486] ${limitReached || !input.trim()
+                                className={`px-6 py-2 bg-[#E1C586] text-[#2b2b31] rounded-lg font-semibold hover:bg-[#E1D486] ${limitReached || !input.trim()
                                     ? 'bg-[#666666] text-[#999999] cursor-not-allowed'
                                     : 'bg-[#E1C586] text-[#2b2b31] hover:bg-[#E1D486]'
                                     } disabled:bg-[#666666] disabled:text-[#999999]`}
