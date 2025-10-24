@@ -40,20 +40,48 @@ type BlockscoutTokenResponse = {
     symbol: string;
     type: string;
     address_hash: string;
-
 };
 
-function getAPIUrlForChain(chainId: number): string | null {
-    switch (chainId) {
-        case 1:
-            return 'https://eth.blockscout.com/api/v2/tokens/';
-        case 56:
-            return 'https://bsc.blockscout.com/api/v2/tokens/';
-        case 137:
-            return 'https://polygon.blockscout.com/api/v2/tokens/';
-        default:
-            return null;
+type BlockChainInfo = {
+    [chainId: number]: {
+        name: string;
+        explorerBaseUrl: string;
+        apiBaseUrl: string;
     }
+};
+
+const blockChainInfo: BlockChainInfo = {
+    1: {
+        name: 'Ethereum',
+        explorerBaseUrl: 'https://eth.blockscout.com/address/',
+        apiBaseUrl: 'https://eth.blockscout.com/api/v2/tokens/',
+    },
+    137: {
+        name: 'Polygon',
+        explorerBaseUrl: 'https://polygon.blockscout.com/address/',
+        apiBaseUrl: 'https://polygon.blockscout.com/api/v2/tokens/',
+    },
+    8453: {
+        name: 'Base',
+        explorerBaseUrl: 'https://base.blockscout.com/address/',
+        apiBaseUrl: 'https://base.blockscout.com/api/v2/tokens/',
+    },
+}
+
+function getAPIUrlForChain(chainId: number): string {
+    const chainInfo = blockChainInfo[chainId];
+    if (chainInfo) {
+        return chainInfo.apiBaseUrl;
+    }
+    throw new Error("ChainID not implemented");
+}
+
+function getBlockscoutExplorerLink(chainId: number, address_hash: string): string{
+    const chainInfo = blockChainInfo[chainId];
+    if (chainInfo) {
+        return `${chainInfo.explorerBaseUrl}${address_hash}`;
+    }
+    throw new Error("ChainID not implemented");
 }
 
 function FetchTokenInfo(address: string, chainId: number): Promise<BlockscoutTokenResponse | null> {
@@ -92,7 +120,6 @@ function FilmToken(tokenInfo: TokenInfo): React.ReactElement {
 
     return (
         <div className="bg-[#1a1a1f] rounded-xl overflow-hidden border-2 border-[#BB9867] hover:border-[#E1D486] transition-all">
-
             <div className="p-4 bg-[#2b2b31]">
                 <h3 className="text-[#E1C586] font-bold text-xl mb-1">{tokenInfo.movieName}</h3>
                 <p className="text-[#999999] text-sm mb-3">({tokenInfo.tokenCollectionName})</p>
@@ -135,7 +162,7 @@ function FilmToken(tokenInfo: TokenInfo): React.ReactElement {
                             <div className="mt-2 pt-2 border-t border-[#BB9867]">
                                 <p className="text-[#999999] mb-1">Contract Address:</p>
                                 <p className="text-[#E1D486] font-mono wrap-break-word" title={tokenData.address_hash}>
-                                    <Link href={'https://eth.blockscout.com/address/' + tokenData.address_hash}>{tokenData.address_hash.slice(0, 10)}...{tokenData.address_hash.slice(-8)}</Link>
+                                    <Link target="_blank" href={getBlockscoutExplorerLink(tokenInfo.chainId, tokenInfo.address)}>{tokenData.address_hash.slice(0, 10)}...{tokenData.address_hash.slice(-8)}</Link>
                                 </p>
                             </div>
                         </div>
