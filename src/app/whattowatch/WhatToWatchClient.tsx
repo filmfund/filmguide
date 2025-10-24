@@ -38,7 +38,7 @@ export default function WhatToWatchClient() {
                     <div className="flex-1 overflow-y-auto p-4 space-y-3">
                         {messages.length === 0 && (
                             <div className="text-center py-12">
-                                <h3 className="text-[#E1C586] text-lg">Tell me what mood you’re in - I’ll find the right blockchain movie</h3>
+                                <h3 className="text-[#E1C586] text-lg">Tell me what mood you&apos;re in - I&apos;ll find the right blockchain movie</h3>
                                 <p className="text-[#999999] text-sm mb-4">
                                     Whether you want to impress a date, spark curiosity at dinner, or dive deep into the world of Bitcoin and Ethereum, our AI curator has you covered.
                                     From indie gems to full-length films and teasers, discover stories that make crypto culture cinematic.

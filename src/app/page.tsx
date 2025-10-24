@@ -19,30 +19,30 @@ export default function Home() {
             </div>
             <div className="space-y-4 text-[#999999] leading-relaxed">
               <div className="pt-4 mt-6">
-                <h3 className="text-lg font-semibold text-[#E1C586] mb-3">AI-powered Web3 guide to blockchain films, funding and decentralized cinema</h3>
+                <h3 className="text-lg font-semibold text-[#E1C586] mb-3">AI-powered web3 guide to blockchain films, funding and decentralized cinema by <a href="http://filmfund.113kw.net/" className="text-[#E1C586]" target="_blank">filmfund.eth</a></h3>
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-center gap-6">
                     {/* <span className="text-[#E1D486]">✦</span> */}
                     <div>
-                      <span className="text-[#E1D486]">✦ What to Watch –</span> Our AI film agent knows over a hundred films and series about Bitcoin, Ethereum, NFTs, Web3, crypto scammers, and meaningful blockchain stories and can guide you to the ones worth your time.
+                      <Link href="/whattowatch"><span className="text-[#E1D486]">✦ What to Watch –</span></Link> Our AI film agent knows over a hundred films and series about Bitcoin, Ethereum, NFTs, web3, crypto scammers, and meaningful blockchain stories and can guide you to the ones worth your time.
                     </div>
                   </li>
                   <li className="flex items-center gap-6">
                     {/* <span className="text-[#E1D486]">✦</span> */}
                     <div>
-                      <span className="text-[#E1D486]">✦ Support a Filmmaker –</span> Contribute directly to emerging film projects. Every subscription or micro-donation helps real creators develop their blockchain-powered stories.
+                      <Link href="/support-film-maker"><span className="text-[#E1D486]">✦ Support a Filmmaker –</span></Link> Contribute directly to emerging film projects. Every subscription or micro-donation helps real creators develop their blockchain-powered stories.
                     </div>
                   </li>
                   <li className="flex items-center gap-6">
                     {/* <span className="text-[#E1D486]">✦</span> */}
                     <div>
-                      <span className="text-[#E1D486]">✦ Film Tokens Insider –</span> Compare tokens, discover on-chain film projects, and learn how blockchain enables transparent film finance.
+                      <Link href="/tokens"><span className="text-[#E1D486]">✦ Film Tokens Insider –</span></Link> Where crypto meets cinema - track, compare, and learn from real tokenized film projects.
                     </div>
                   </li>
                   <li className="flex items-center gap-6">
                     {/* <span className="text-[#E1D486]">✦</span> */}
                     <div>
-                      <span className="text-[#E1D486]">✦ Filmmaker’s Guide to Blockchain and Web3 –</span> A living manual for creators exploring decentralized tools, funding, and distribution.
+                      <Link href="/filmmakersguide"><span className="text-[#E1D486]">✦ Filmmaker&apos;s Guide to blockchain and web3 –</span></Link> A living manual for creators exploring decentralized tools, funding, and distribution.
                     </div>
                   </li>
                 </ul>
@@ -68,16 +68,16 @@ export default function Home() {
             <Link href="/subscribe">
               <div className="group bg-[#2b2b31] rounded-2xl p-8 cursor-pointer hover:border-[#E71111] transition-all duration-200 border-2 border-[#BB9867] shadow-xl">
                 <div className="flex items-start justify-between mb-2">
-                  <h3 className="text-2xl font-bold text-[#E71111]">Subscribe - Get the Full Experience</h3>
+                  <h3 className="text-2xl font-bold text-[#E71111]">SUBSCRIBE - Get the Full Experience</h3>
                   <span className="px-3 py-1 bg-[#85840D] text-[#2b2b31] text-xs font-semibold rounded-full">
                     Premium
                   </span>
                 </div>
                 <p className="text-[#999999]">
-                  Access premium features, deeper film data, and direct-to-creator support — powered by PayPal and Web3 integration.
+                  Access premium features, deeper film3 data, and direct-to-creator support - powered by PayPal USD and web3 integration.
                 </p>
                 <div className="mt-4 text-[#E71111] font-semibold flex items-center gap-2">
-                  View Plans
+                  Subscribe Now
                   <span className="group-hover:translate-x-2 transition-transform">→</span>
                 </div>
               </div>
@@ -87,7 +87,7 @@ export default function Home() {
               <div className="group bg-[#2b2b31] rounded-2xl p-8 cursor-pointer hover:border-[#E1D486] transition-all duration-200 border-2 border-[#BB9867] shadow-xl">
                 <h3 className="text-2xl font-bold text-[#E1C586] mb-2">Support a Filmmaker</h3>
                 <p className="text-[#999999]">
-                  Contribute directly to emerging film projects. Every subscription or micro-donation helps real creators develop their blockchain-powered stories.
+                  Contribute directly to emerging film projects. Every subscription or micro-donation helps real creators develop their blockchain related stories.
                 </p>
                 <div className="mt-4 text-[#E1D486] font-semibold flex items-center gap-2">
                   Learn More

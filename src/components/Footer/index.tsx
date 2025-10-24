@@ -65,7 +65,7 @@ export default function Footer() {
                 </div>
                 <div className="text-center">
                     <p className="text-[#999999] text-sm">
-                        Built for ETH Global Hackathon 2025 • Empowering the future of decentralized filmmaking
+                        Built for ETH Global Hackathon Online - October 2025 • Empowering the future of decentralized filmmaking
                     </p>
                 </div>
             </div>

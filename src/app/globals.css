@@ -136,3 +136,10 @@ textarea {
   -moz-user-select: text;
   -ms-user-select: text;
 }
+
+@font-face {
+  font-family: 'ITC Benguiat';
+  src: url('/fonts/ITC_Benguiat_Bold.otf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}

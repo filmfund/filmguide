@@ -19,10 +19,10 @@ export default function SupportFilmmakerClient() {
                                 <div className="flex items-start gap-6">
                                     <div className="flex-shrink-0">
                                         <Image
-                                            src="/filmmaker-photo.png"
+                                            src="/filmmaker_picture.jpg"
                                             alt="Filmmaker Name"
                                             width={150}
-                                            height={150}
+                                            height={200}
                                             className="rounded-lg object-cover"
                                         />
                                     </div>
@@ -51,10 +51,10 @@ export default function SupportFilmmakerClient() {
                                 <div className="grid md:grid-cols-2 gap-4 items-start">
                                     <div className="max-h-[150px] overflow-hidden">
                                         <Image
-                                            src="/project-poster-1.png"
+                                            src="/filmproject_image.png"
                                             alt="Project Title"
-                                            width={150}
-                                            height={150}
+                                            width={100}
+                                            height={100}
                                             className="w-full h-full rounded-lg object-cover"
                                         />
                                     </div>
