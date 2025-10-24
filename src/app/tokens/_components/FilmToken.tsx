@@ -1,20 +1,8 @@
 'use client';
-import React from 'react';
+import {useEffect, useState} from 'react';
 
-import { useQuery } from '@tanstack/react-query'
 import Link from 'next/link';
-
-type TokenInfo = {
-    address: string;
-    chainId: number;
-    movieName: string;
-    tokenCollectionName: string;
-    tokenSymbol: string;
-    tokenType: string;
-    openSeaUrl?: string;
-    director: string;
-    website?: string;
-}
+import { TokenInfo } from './types';
 
 type BlockscoutTokenResponse = {
     name: string;
@@ -64,6 +52,15 @@ function getChainInfo(chainId: number): BlockChainInfoSegment {
 }
 
 function FetchTokenInfo(address: string, chainId: number): Promise<BlockscoutTokenResponse | null> {
+
+    const isClient = typeof window !== 'undefined';
+    console.log('FetchTokenInfo called', { address, chainId, isClient });
+
+    if (!isClient) {
+        // if this runs on the server unexpectedly, skip the network call
+        return Promise.resolve(null);
+    }
+
     const apiBaseUrl = getChainInfo(chainId).apiBaseUrl;
     const apiUrl = `${apiBaseUrl}${address}`;
 
@@ -83,10 +80,10 @@ function FetchTokenInfo(address: string, chainId: number): Promise<BlockscoutTok
         });
 }
 
-function FilmToken(tokenInfo: TokenInfo): React.ReactElement {
-    const [tokenData, setTokenData] = React.useState<BlockscoutTokenResponse | null>(null);
+export default function FilmToken(tokenInfo: TokenInfo): React.ReactElement {
+    const [tokenData, setTokenData] = useState<BlockscoutTokenResponse | null>(null);
 
-    React.useEffect(() => {
+    useEffect(() => {
         FetchTokenInfo(tokenInfo.address, tokenInfo.chainId)
             .then(data => {
                 setTokenData(data);
@@ -166,27 +163,3 @@ function FilmToken(tokenInfo: TokenInfo): React.ReactElement {
         </div>
     );
 }
-
-function FilmTokensList(): React.ReactElement {
-
-    const { data, isPending, error } = useQuery<TokenInfo[]>({
-        queryKey: ['filmtokens'],
-        queryFn: () => fetch('/api/tokens').then(r => r.json()),
-    })
-
-    console.log('Token data:', data);
-    console.log('Number of tokens:', data?.length);
-
-    if (isPending) return <div className="text-center text-[#999999] py-12">Loading...</div>
-    if (error) return <div className="text-center text-[#E71111] py-12">Oops!</div>
-
-    return (
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {data.map((tokenInfo, index) => (
-                <FilmToken key={index} {...tokenInfo} />
-            ))}
-        </div>
-    );
-}
-
-export { FilmToken, FilmTokensList, type TokenInfo };
