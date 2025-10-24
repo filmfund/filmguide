@@ -2,6 +2,7 @@
 import React from 'react';
 
 import { useQuery } from '@tanstack/react-query'
+import Link from 'next/link';
 
 // const filmTokens = await import('../filmTokens.json', {
 //   with: { type: 'json' }
@@ -133,8 +134,8 @@ function FilmToken(tokenInfo: TokenInfo): React.ReactElement {
                             </div>
                             <div className="mt-2 pt-2 border-t border-[#BB9867]">
                                 <p className="text-[#999999] mb-1">Contract Address:</p>
-                                <p className="text-[#E1D486] font-mono break-words" title={tokenData.address_hash}>
-                                    {tokenData.address_hash.slice(0, 10)}...{tokenData.address_hash.slice(-8)}
+                                <p className="text-[#E1D486] font-mono wrap-break-word" title={tokenData.address_hash}>
+                                    <Link href={'https://eth.blockscout.com/address/' + tokenData.address_hash}>{tokenData.address_hash.slice(0, 10)}...{tokenData.address_hash.slice(-8)}</Link>
                                 </p>
                             </div>
                         </div>
