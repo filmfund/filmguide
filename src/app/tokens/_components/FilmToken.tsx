@@ -98,7 +98,7 @@ function FilmToken(tokenInfo: TokenInfo): React.ReactElement {
     return (
         <div className="bg-[#1a1a1f] rounded-xl overflow-hidden border-2 border-[#BB9867] hover:border-[#E1D486] transition-all">
             <div className="p-4 bg-[#2b2b31]">
-                <h3 className="text-[#E1C586] font-bold text-xl mb-1">{tokenInfo.movieName}</h3>
+                <h3 className="text-[#E1C586] font-bold text-xl mb-1 line-clamp-1">{tokenInfo.movieName}</h3>
                 <p className="text-[#999999] text-sm mb-3">({tokenInfo.tokenCollectionName})</p>
                 <div className="mb-4">
                     <p className="text-[#999999] text-sm">
