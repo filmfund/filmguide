@@ -4,10 +4,6 @@ import React from 'react';
 import { useQuery } from '@tanstack/react-query'
 import Link from 'next/link';
 
-// const filmTokens = await import('../filmTokens.json', {
-//   with: { type: 'json' }
-// }) as unknown as TokenInfo[];
-
 type TokenInfo = {
     address: string;
     chainId: number;
@@ -20,21 +16,6 @@ type TokenInfo = {
     website?: string;
 }
 
-/*
-https://eth.blockscout.com/api/v2/tokens/{address_hash}
-{
-  "circulating_market_cap": "83606435600.3635",
-  "icon_url": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png",
-  "name": "Tether USD",
-  "decimals": "6",
-  "symbol": "USDT",
-  "address_hash": "0x394c399dbA25B99Ab7708EdB505d755B3aa29997",
-  "type": "ERC-20",
-  "holders_count": "837494234523",
-  "exchange_rate": "0.99",
-  "total_supply": "10000000"
-}
-*/
 type BlockscoutTokenResponse = {
     name: string;
     symbol: string;
