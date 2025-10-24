@@ -64,7 +64,7 @@ export default function SubscribeClient() {
                                 </div>
                                 <div className="flex items-center gap-2 text-[#E1D486]">
                                     <span>✦</span>
-                                    <span>Film token insights</span>
+                                    <span>Personalized AI agents experience</span>
                                 </div>
                                 <div className="flex items-center gap-2 text-[#E1D486]">
                                     <span>✦</span>
@@ -77,7 +77,7 @@ export default function SubscribeClient() {
                             </button>
 
                             <p className="text-center text-[#999999] text-xs">
-                                Support the Web3 film community
+                                Support the web3 film3 community
                             </p>
                         </div>
                     </div>
@@ -87,30 +87,30 @@ export default function SubscribeClient() {
                             <div className="text-2xl flex-shrink-0">🎬</div>
                             <div>
                                 <h3 className="text-[#E1C586] font-bold text-sm mb-1">100+ Films</h3>
-                                <p className="text-[#999999] text-xs">Curated blockchain cinema database</p>
+                                <p className="text-[#999999] text-xs">Unlimited access to curated blockchain cinema database</p>
                             </div>
                         </div>
 
                         <div className="bg-[#2b2b31] border-2 border-[#BB9867] rounded-xl p-4 flex items-start gap-3">
                             <div className="text-2xl flex-shrink-0">🤖</div>
                             <div>
-                                <h3 className="text-[#E1C586] font-bold text-sm mb-1">AI Agent</h3>
-                                <p className="text-[#999999] text-xs">Personalized film recommendations</p>
+                                <h3 className="text-[#E1C586] font-bold text-sm mb-1">AI Agents</h3>
+                                <p className="text-[#999999] text-xs">Personalized AI agents experience</p>
                             </div>
                         </div>
 
                         <div className="bg-[#2b2b31] border-2 border-[#BB9867] rounded-xl p-4 flex items-start gap-3">
                             <div className="text-2xl flex-shrink-0">💬</div>
                             <div>
-                                <h3 className="text-[#E1C586] font-bold text-sm mb-1">Comments & Insights</h3>
-                                <p className="text-[#999999] text-xs">Your reviews appear in the AI chat</p>
+                                <h3 className="text-[#E1C586] font-bold text-sm mb-1">Contribute to the database</h3>
+                                <p className="text-[#999999] text-xs">Your reviews of the movies are acknowledged by the AI agent and mentioned to other users</p>
                             </div>
                         </div>
 
                         <div className="bg-[#2b2b31] border-2 border-[#BB9867] rounded-xl p-4 flex items-start gap-3">
                             <div className="text-2xl flex-shrink-0">💎</div>
                             <div>
-                                <h3 className="text-[#E1C586] font-bold text-sm mb-1">Exclusive Guides</h3>
+                                <h3 className="text-[#E1C586] font-bold text-sm mb-1">Access Exclusive Guide</h3>
                                 <p className="text-[#999999] text-xs">Filmmaker&apos;s Web3 knowledge hub</p>
                             </div>
                         </div>
@@ -118,16 +118,16 @@ export default function SubscribeClient() {
                         <div className="bg-[#2b2b31] border-2 border-[#BB9867] rounded-xl p-4 flex items-start gap-3">
                             <div className="text-2xl flex-shrink-0">🌍</div>
                             <div>
-                                <h3 className="text-[#E1C586] font-bold text-sm mb-1">Real Support</h3>
-                                <p className="text-[#999999] text-xs">10¢ goes directly to verified filmmakers</p>
+                                <h3 className="text-[#E1C586] font-bold text-sm mb-1">Real Support for Global Crypto Adoption</h3>
+                                <p className="text-[#999999] text-xs">10% goes directly to verified filmmakers and their film projects directly enhancing global crypto adoption</p>
                             </div>
                         </div>
 
                         <div className="bg-[#2b2b31] border-2 border-[#BB9867] rounded-xl p-4 flex items-start gap-3">
                             <div className="text-2xl flex-shrink-0">🎟️</div>
                             <div>
-                                <h3 className="text-[#E1C586] font-bold text-sm mb-1">Festival Perks</h3>
-                                <p className="text-[#999999] text-xs">Discounts for Bitcoin Film Festival & MetaCannes</p>
+                                <h3 className="text-[#E1C586] font-bold text-sm mb-1">IRL Events Perks</h3>
+                                <p className="text-[#999999] text-xs">Ticket Discounts to film and blockchain related IRL events</p>
                             </div>
                         </div>
                     </div>
