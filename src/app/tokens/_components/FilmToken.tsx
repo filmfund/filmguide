@@ -24,53 +24,47 @@ type BlockscoutTokenResponse = {
 };
 
 type BlockChainInfo = {
-    [chainId: number]: {
-        name: string;
-        explorerBaseUrl: string;
-        apiBaseUrl: string;
-    }
+    [chainId: number]: BlockChainInfoSegment
+};
+
+type BlockChainInfoSegment = {
+    name: string;
+    explorerMainpageUrl: string;
+    explorerBaseUrl: string;
+    apiBaseUrl: string;
 };
 
 const blockChainInfo: BlockChainInfo = {
     1: {
         name: 'Ethereum',
+        explorerMainpageUrl: 'https://eth.blockscout.com/',
         explorerBaseUrl: 'https://eth.blockscout.com/address/',
         apiBaseUrl: 'https://eth.blockscout.com/api/v2/tokens/',
     },
     137: {
         name: 'Polygon',
+        explorerMainpageUrl: 'https://polygon.blockscout.com/',
         explorerBaseUrl: 'https://polygon.blockscout.com/address/',
         apiBaseUrl: 'https://polygon.blockscout.com/api/v2/tokens/',
     },
     8453: {
         name: 'Base',
+        explorerMainpageUrl: 'https://base.blockscout.com/',
         explorerBaseUrl: 'https://base.blockscout.com/address/',
         apiBaseUrl: 'https://base.blockscout.com/api/v2/tokens/',
     },
 }
 
-function getAPIUrlForChain(chainId: number): string {
+function getChainInfo(chainId: number): BlockChainInfoSegment {
     const chainInfo = blockChainInfo[chainId];
     if (chainInfo) {
-        return chainInfo.apiBaseUrl;
-    }
-    throw new Error("ChainID not implemented");
-}
-
-function getBlockscoutExplorerLink(chainId: number, address_hash: string): string{
-    const chainInfo = blockChainInfo[chainId];
-    if (chainInfo) {
-        return `${chainInfo.explorerBaseUrl}${address_hash}`;
+        return chainInfo;
     }
     throw new Error("ChainID not implemented");
 }
 
 function FetchTokenInfo(address: string, chainId: number): Promise<BlockscoutTokenResponse | null> {
-    const apiBaseUrl = getAPIUrlForChain(chainId);
-    if (!apiBaseUrl) {
-        console.error(`Unsupported chain ID: ${chainId}`);
-        return Promise.resolve(null);
-    }
+    const apiBaseUrl = getChainInfo(chainId).apiBaseUrl;
     const apiUrl = `${apiBaseUrl}${address}`;
 
     return fetch(apiUrl)
@@ -99,6 +93,8 @@ function FilmToken(tokenInfo: TokenInfo): React.ReactElement {
             });
     }, [tokenInfo.address, tokenInfo.chainId]);
 
+    const blockChainInfo = getChainInfo(tokenInfo.chainId);
+
     return (
         <div className="bg-[#1a1a1f] rounded-xl overflow-hidden border-2 border-[#BB9867] hover:border-[#E1D486] transition-all">
             <div className="p-4 bg-[#2b2b31]">
@@ -120,8 +116,8 @@ function FilmToken(tokenInfo: TokenInfo): React.ReactElement {
                         <span className="text-[#E1C586]">{tokenInfo.tokenType}</span>
                     </div>
                     <div className="flex justify-between">
-                        <span className="text-[#999999]">Chain ID:</span>
-                        <span className="text-[#E1C586]">{tokenInfo.chainId}</span>
+                        <span className="text-[#999999]">Chain:</span>
+                        <span className="text-[#E1C586]">{blockChainInfo.name}</span>
                     </div>
                 </div>
 
@@ -143,7 +139,7 @@ function FilmToken(tokenInfo: TokenInfo): React.ReactElement {
                             <div className="mt-2 pt-2 border-t border-[#BB9867]">
                                 <p className="text-[#999999] mb-1">Contract Address:</p>
                                 <p className="text-[#E1D486] font-mono wrap-break-word" title={tokenData.address_hash}>
-                                    <Link target="_blank" href={getBlockscoutExplorerLink(tokenInfo.chainId, tokenInfo.address)}>{tokenData.address_hash.slice(0, 10)}...{tokenData.address_hash.slice(-8)}</Link>
+                                    <Link target="_blank" href={`${blockChainInfo.explorerBaseUrl}/${tokenInfo.address}`}>{tokenData.address_hash.slice(0, 10)}...{tokenData.address_hash.slice(-8)}</Link>
                                 </p>
                             </div>
                         </div>
