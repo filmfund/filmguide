@@ -44,13 +44,13 @@ export default function DashboardClient() {
                                     <div className="flex items-center justify-between gap-4">
                                         <div className="flex-1">
                                             <h3 className="text-2xl font-bold text-[#E1C586] mb-3">
-                                                Filmmaker's Guide to blockchain and web3
+                                                Filmmaker&apos;s Guide to blockchain and web3
                                             </h3>
                                             <p className="text-[#999999] mb-4">
                                                 A living manual for creators exploring decentralized tools, funding, and distribution.
                                             </p>
                                             <div className="flex items-center gap-2">
-                                                <div className="text-[#E1D486] font-semibold flex items-center gap-2">
+                                                <div className=" text-[#E1D486] font-semibold flex items-center gap-2">
                                                     Access Guide
                                                     <span className="group-hover:translate-x-2 transition-transform">→</span>
                                                 </div>
