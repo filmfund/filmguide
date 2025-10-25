@@ -66,7 +66,7 @@ export default function Home() {
             </Link>
 
             <Link href="/subscribe">
-              <div className="group bg-[#2b2b31] rounded-2xl p-8 cursor-pointer hover:border-[#E71111] transition-all duration-200 border-2 border-[#BB9867] shadow-xl">
+              <div className="group bg-[#2b2b31] rounded-2xl p-8 cursor-pointer hover:border-[#E71111] transition-all duration-200 border-2 border-[#E71111] shadow-xl">
                 <div className="flex items-start justify-between mb-2">
                   <h3 className="text-2xl font-bold text-[#E71111]">SUBSCRIBE - Get the Full Experience</h3>
                   <span className="px-3 py-1 bg-[#85840D] text-[#2b2b31] text-xs font-semibold rounded-full">

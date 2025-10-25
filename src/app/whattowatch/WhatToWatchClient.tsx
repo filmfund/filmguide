@@ -39,8 +39,8 @@ export default function WhatToWatchClient() {
                 </h1>
 
                 <div className="max-w-2xl mx-auto mb-6">
-                    <div className="bg-[#2b2b31] border-2 border-[#BB9867] rounded-lg p-4 text-center">
-                        <h3 className="text-[#E1C586] font-semibold mb-3">Tell me what mood you&apos;re in - I&apos;ll find the right blockchain movie.</h3>
+                    <div className="bg-[#2b2b31] border-2 border-[#BB9867] rounded-lg p-4 text-left">
+                        <h3 className="text-[#E1C586] font-semibold mb-3 text-center">Tell me what mood you&apos;re in - I&apos;ll find the right blockchain movie.</h3>
                         <p className="text-[#999999] text-sm">
                             Whether you want to impress a date, spark curiosity at dinner, or dive deep into the world of bitcoin and ethereum, our What to Watch AI agent has you covered.
                         </p>
