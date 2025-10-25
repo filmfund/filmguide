@@ -66,7 +66,7 @@ export default function WhatToWatchClient() {
                                 }
                             </p>
                         </div>
-                        <Link href="/dashboard" className="px-3 py-1 bg-[#E1C586] text-[#2b2b31] text-xs rounded-full hover:bg-[#E1D486] transition-colors">
+                        <Link href="/dashboard" className="px-3 py-1 bg-[#E1C586] text-[#2b2b31] text-sm rounded-full hover:bg-[#E1D486] transition-colors">
                             ← Back
                         </Link>
                     </div>

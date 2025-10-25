@@ -46,7 +46,7 @@ export default function FilmmakersGuideClient() {
                     </div>
                 </div>
                 <div className="max-w-4xl mx-auto bg-[#2b2b31] border-2 border-[#BB9867] rounded-xl h-[700px] flex flex-col">
-                    <div className="p-4 border-b-2 border-[#BB9867] flex justify-between">
+                    <div className="p-4 border-b-2 border-[#BB9867] flex justify-between items-center">
                         <div>
                             <h3 className="text-[#E1C586] font-bold">Filmmaker&apos;s Guide to blockchain and web3</h3>
                             <p className="text-[#999999] text-xs">
