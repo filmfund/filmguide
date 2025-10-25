@@ -66,20 +66,16 @@ export default function WhatToWatchClient() {
                                 }
                             </p>
                         </div>
-                        <Link href="/dashboard" className="px-3 py-1 bg-[#E1C586] text-[#2b2b31] text-xs rounded-full hover:bg-[#E1D486] transition-colors">
+                        <Link href="/dashboard" className="px-3 py-1 bg-[#E1C586] text-[#2b2b31] text-sm rounded-full hover:bg-[#E1D486] transition-colors">
                             ← Back
                         </Link>
                     </div>
 
-                    {/* Messages */}
                     <div className="flex-1 overflow-y-auto p-4 space-y-3">
                         {messages.length === 0 && (
                             <div className="text-center py-12">
-                                <p className="text-[#E1D486] mb-4">
-                                    Want to watch a movie about blockchain?
-                                </p>
                                 <div className="space-y-2 text-[#999999] text-sm">
-                                    <p>Let me guide you through the best films and documentaries on the topic of web3, bitcoin, ethereum, and the world of crypto storytelling…</p>
+                                    <p>Want to watch a movie about blockchain? Let me guide you through the best films and documentaries on the topic of web3, bitcoin, ethereum, and the world of crypto storytelling…</p>
                                 </div>
                             </div>
                         )}
@@ -103,7 +99,6 @@ export default function WhatToWatchClient() {
                         )}
                     </div>
 
-                    {/* Input */}
                     <div className="p-4 border-t-2 border-[#BB9867]">
                         <div className="flex gap-2">
                             <input
@@ -111,7 +106,7 @@ export default function WhatToWatchClient() {
                                 onChange={e => setInput(e.target.value)}
                                 onKeyPress={e => e.key === 'Enter' && send()}
                                 disabled={limitReached}
-                                placeholder={limitReached ? "Subscribe to continue..." : "Ask about films..."}
+                                placeholder={limitReached ? "Subscribe to continue..." : "I want to watch something about Vitalik"}
                                 className={`flex-1 bg-[#3a3a40] text-[#E1C586] border-2 border-[#BB9867] rounded-lg px-4 py-2 focus:outline-none focus:border-[#E1D486] ${limitReached ? 'opacity-50 cursor-not-allowed' : ''
                                     }`}
                             />
