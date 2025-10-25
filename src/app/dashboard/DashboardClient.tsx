@@ -76,7 +76,7 @@ export default function DashboardClient() {
                             <div className="bg-[#2b2b31] border-2 border-[#E71111] rounded-xl p-4 opacity-60 cursor-not-allowed relative">
                                 <div className="flex items-center justify-between gap-2">
                                     <div className="flex-1">
-                                        <h3 className="text-2xl font-bold text-[#E1C586] mb-3">
+                                        <h3 className="text-2xl font-bold text-[#E71111] mb-3">
                                             Filmmaker&apos;s Guide to blockchain and web3
                                         </h3>
                                         <p className="text-[#999999] mb-4">
