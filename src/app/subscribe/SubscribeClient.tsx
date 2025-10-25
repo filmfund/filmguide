@@ -111,7 +111,7 @@ export default function SubscribeClient() {
                             <div className="text-2xl flex-shrink-0">💎</div>
                             <div>
                                 <h3 className="text-[#E1C586] font-bold text-sm mb-1">Access Exclusive Guide</h3>
-                                <p className="text-[#999999] text-xs">Filmmaker&apos;s Web3 knowledge hub</p>
+                                <p className="text-[#999999] text-xs">Filmmaker&apos;s web3 knowledge hub</p>
                             </div>
                         </div>
 

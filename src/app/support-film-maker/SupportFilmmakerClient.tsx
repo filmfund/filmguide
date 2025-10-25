@@ -76,7 +76,7 @@ export default function SupportFilmmakerClient() {
                                 <div className="grid md:grid-cols-2 gap-4 items-start">
                                     <div className="max-h-[350px] overflow-hidden">
                                         <Image
-                                            src="/filmproject_image.png"
+                                            src="/filmimage.png"
                                             alt="Project Title"
                                             width={300}
                                             height={300}
