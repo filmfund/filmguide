@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import ChatInterface from '@/components/ChatInterface';
 import Image from 'next/image';
-const MOCK_SUBSCRIBED = true;
+const MOCK_SUBSCRIBED = false;
 
 export default function DashboardClient() {
     const [isSubscribed] = useState(MOCK_SUBSCRIBED);
@@ -76,17 +76,19 @@ export default function DashboardClient() {
                             <div className="bg-[#2b2b31] border-2 border-[#E71111] rounded-xl p-4 opacity-60 cursor-not-allowed relative">
                                 <div className="flex items-center justify-between gap-2">
                                     <div className="flex-1">
-                                        <div className="flex items-start justify-between mb-2">
-                                            <h3 className="text-2xl font-bold text-[#E1C586] mb-2">Filmmaker&apos;s Guide to blockchain and web3</h3>
-                                            <p className="text-[#999999]">
-                                                A living manual for creators exploring decentralized tools, funding, and distribution.
-                                            </p>
+                                        <h3 className="text-2xl font-bold text-[#E1C586] mb-3">
+                                            Filmmaker&apos;s Guide to blockchain and web3
+                                        </h3>
+                                        <p className="text-[#999999] mb-4">
+                                            A living manual for creators exploring decentralized tools, funding, and distribution.
+                                        </p>
+                                        <div className="flex items-center gap-2">
+                                            <Link href="/subscribe">
+                                                <button className="px-6 py-2 bg-[#E71111] text-white rounded-lg font-semibold hover:bg-[#A60E0E] transition-colors">
+                                                    Subscribe to Unlock
+                                                </button>
+                                            </Link>
                                         </div>
-                                        <Link href="/subscribe">
-                                            <button className="px-6 py-2 bg-[#E71111] text-white rounded-lg font-semibold hover:bg-[#A60E0E] transition-colors">
-                                                Subscribe to Unlock
-                                            </button>
-                                        </Link>
                                     </div>
                                     <div className="rounded-xl overflow-hidden flex-shrink-0">
                                         <Image

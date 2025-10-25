@@ -31,9 +31,9 @@ export default function SupportFilmmakerClient() {
                             In the next phase, users will be able to support projects through tiers that unlock deeper insights into the filmmaking process:
                         </p>
                         <ul className="list-disc list-inside text-[#999999] text-sm space-y-2 mt-3">
-                            <li><span className="text-[#E1D486] font-semibold">$50 Tier</span> – Early project updates, concept art, and behind-the-scenes notes</li>
-                            <li><span className="text-[#E1D486] font-semibold">$1,000 Tier</span> – Access to read the film&apos;s script and see exclusive footage, being in subtitles</li>
-                            <li><span className="text-[#E1D486] font-semibold">$5,000 Tier</span> – Join weekly video calls with the crew and receive early screening access, being highlighted in subtitles</li>
+                            <li><span className="text-[#E1D486] font-semibold">$50 Tier</span> - Early project updates, concept art, and behind-the-scenes notes</li>
+                            <li><span className="text-[#E1D486] font-semibold">$1,000 Tier</span> - Access to read the film&apos;s script and see exclusive footage, being in subtitles</li>
+                            <li><span className="text-[#E1D486] font-semibold">$5,000 Tier</span> - Join weekly video calls with the crew and receive early screening access, being highlighted in subtitles</li>
                         </ul>
                     </div>
                 </div>
@@ -71,7 +71,7 @@ export default function SupportFilmmakerClient() {
                             </div>
 
                             <div className="bg-[#2b2b31] border-2 border-[#BB9867] rounded-xl p-6">
-                                <h3 className="text-xl font-bold text-[#E1C586] mb-4">Something to believe in</h3>
+                                {/* <h3 className="text-xl font-bold text-[#E1C586] mb-4">Something to believe in</h3> */}
 
                                 <div className="grid md:grid-cols-2 gap-4 items-start">
                                     <div className="max-h-[350px] overflow-hidden">
@@ -85,7 +85,7 @@ export default function SupportFilmmakerClient() {
                                     </div>
 
                                     <div>
-                                        {/* <h4 className="text-lg font-bold text-[#E1C586] mb-2">Project Title</h4> */}
+                                        <h4 className="text-lg font-bold text-[#E1C586] mb-2">Something to believe in</h4>
                                         <p className="text-[#999999] text-sm mb-4 text-left">
                                             <span className="font-bold">Something to believe in</span> is a short, emotionally charged story by <span className="font-bold">113kw (Kristina Weiserová)</span> - a filmmaker and FAMU lecturer exploring where technology meets humanity.
                                             Told through interwoven timelines and characters, the film reveals how one small blockchain moment can ripple across lives, connecting a hacker, a dreamer, and a lost coder.

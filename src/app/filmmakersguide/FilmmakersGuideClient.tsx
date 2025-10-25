@@ -38,8 +38,8 @@ export default function FilmmakersGuideClient() {
                 </h1>
 
                 <div className="max-w-2xl mx-auto mb-6">
-                    <div className="bg-[#2b2b31] border-2 border-[#BB9867] rounded-lg p-4 text-center">
-                        <h3 className="text-[#E1C586] font-semibold mb-3">Your no-nonsense AI mentor for navigating the new era of filmmaking</h3>
+                    <div className="bg-[#2b2b31] border-2 border-[#BB9867] rounded-lg p-4 text-left">
+                        <h3 className="text-[#E1C586] font-semibold mb-3 text-center">Your no-nonsense AI mentor for navigating the new era of filmmaking</h3>
                         <p className="text-[#999999] text-sm">
                             Think of me as your no-nonsense AI mentor - I&apos;ve seen every hype cycle and can tell you which projects deliver and which don&apos;t. I&apos;ll help you find working DAOs, grants, streaming platforms, and communities that actually support filmmakers.
                         </p>
