@@ -201,7 +201,9 @@ export const useSubscription = (config: SubscriptionConfig) => {
     const [error, setError] = useState<string | null>(null);
 
     // Prepare contract write for creating subscription
-    const result = useSimulateContract({
+    const {
+        data: createSubscriptionData
+    } = useSimulateContract({
         address: config.contractAddress as `0x${string}`,
         abi: SUBSCRIPTION_ABI,
         functionName: 'createSubscription',
@@ -209,10 +211,10 @@ export const useSubscription = (config: SubscriptionConfig) => {
             enabled: isConnected && !!address // Enable when wallet is connected
         }
     });
-    
+    const { writeContractAsync: createSubscriptionWrite } = useWriteContract();
 
     // Debug contract preparation
-    console.log('useSimulateContract result:', result);
+    //console.log('useSimulateContract result:', result);
 
     // const writeContractResult = useWriteContract({
     //     //...result.config
@@ -312,15 +314,28 @@ export const useSubscription = (config: SubscriptionConfig) => {
         setError(null);
 
         try {
-            // Step 1: Approve token spending
+
             if (approvalData?.result) {
                 console.log('Starting token approval process...');
                 //approveToken();
-                const approveResult = await approvePYUSD(approvalData?.request);
+                // Step 1: Approve token spending
+                const approveTx = await approvePYUSD(approvalData?.request);
                 //approveResult
-                const approveReceipt = await waitForTransactionReceipt(wagmiConfig, { hash: approveResult });
+                const approveReceipt = await waitForTransactionReceipt(wagmiConfig, { hash: approveTx });
+
+                if (approveReceipt.status === "reverted") {
+                    throw new Error("Transaction reverted");
+                }
+
+                // Wait 3 seconds extra
+                await new Promise(res => setTimeout(res, 3000));
                 
-                config.onSuccess?.(approveReceipt);
+                const createSubscriptionTx = await createSubscriptionWrite(createSubscriptionData?.request);
+
+                const createSubscriptionReceipt = await waitForTransactionReceipt(wagmiConfig, { hash: createSubscriptionTx });
+
+                
+                config.onSuccess?.(createSubscriptionReceipt);
 
                 //config.onSuccess()
             } else {
@@ -334,7 +349,7 @@ export const useSubscription = (config: SubscriptionConfig) => {
             setIsLoading(false);
             throw err;
         }
-    }, [isConnected, address, approvalData, approvePYUSD, config]);
+    }, [isConnected, address, approvalData, approvePYUSD, createSubscriptionData, createSubscriptionWrite, config]);
 
     // // Cancel subscription
     // const cancelSubscriptionTx = useCallback(async () => {
