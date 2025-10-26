@@ -1,13 +1,13 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-const MOCK_SUBSCRIBED = false;
+//const MOCK_SUBSCRIBED = false;
 
 export default function SupportFilmmakerClient() {
-    const [isSubscribed] = useState(MOCK_SUBSCRIBED);
+    //const [isSubscribed] = useState(MOCK_SUBSCRIBED);
 
     return (
         <div className="min-h-screen bg-[#2b2b31]">
@@ -45,7 +45,7 @@ export default function SupportFilmmakerClient() {
                                     <div className="flex-shrink-0">
                                         <Image
                                             src="/filmmaker_picture.jpg"
-                                            alt="Filmmaker Name"
+                                            alt="Filmmaker Picture"
                                             width={150}
                                             height={200}
                                             className="rounded-lg object-cover"
@@ -76,7 +76,7 @@ export default function SupportFilmmakerClient() {
                                 <div className="grid md:grid-cols-2 gap-4 items-start">
                                     <div className="max-h-[350px] overflow-hidden">
                                         <Image
-                                            src="/filmproject_image.png"
+                                            src="/filmimage.png"
                                             alt="Project Title"
                                             width={300}
                                             height={300}
@@ -113,23 +113,24 @@ export default function SupportFilmmakerClient() {
                                 </p>
                             </div>
 
-
-                            {isSubscribed ? (
-                                <div className="bg-[#01361b] rounded-xl p-6">
-                                    <p className="text-[#2b2b31] text-sm mb-4 font-semibold">
-                                        Thank you for being subscribed!
+                            <Link href="/subscribe">
+                                <div className="group bg-[#2b2b31] rounded-2xl p-4 cursor-pointer hover:border-[#E71111] transition-all duration-200 border-2 border-[#E71111] shadow-xl">
+                                    <div className="flex items-start justify-between mb-2">
+                                        <h3 className="text-2xl font-bold text-[#E71111]">SUBSCRIBE - Get the Full Experience</h3>
+                                        <span className="px-3 py-1 bg-[#85840D] text-[#2b2b31] text-xs font-semibold rounded-full">
+                                            Premium
+                                        </span>
+                                    </div>
+                                    <p className="text-[#999999]">
+                                        Access premium features, deeper film3 data, and direct-to-creator support - powered by PayPal USD and web3 integration.
                                     </p>
+                                    <div className="mt-4 text-[#E71111] font-semibold flex items-center gap-2">
+                                        Subscribe Now
+                                        <span className="group-hover:translate-x-2 transition-transform">→</span>
+                                    </div>
                                 </div>
-                            ) : (
-                                <div>
-                                    <Link href="/subscribe">
-                                        <button className="w-full py-3 bg-[#E71111] text-white rounded-lg font-semibold hover:bg-[#A60E0E] transition-colors mb-4">
-                                            subscription button
-                                        </button>
-                                    </Link>
-                                </div>
-                            )}
-                            <div className="bg-[#E1C586] rounded-xl p-4">
+                            </Link>
+                            <div className="bg-[#E1C586] rounded-xl p-4 mt-6">
                                 <p className="text-[#2b2b31] text-xs leading-relaxed">
                                     Your subscription does more than unlock films - it helps real blockchain storytellers turn decentralized ideas into cinematic reality.
                                 </p>

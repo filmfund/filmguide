@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import SubscriptionPayment from '@/components/SubscriptionPayment';
 
 export default function SubscribeClient() {
     return (
@@ -40,15 +41,15 @@ export default function SubscribeClient() {
                             </div>
                         </div>
 
-                        <div className="bg-[#2b2b31] border-2 border-[#BB9867] rounded-xl p-6">
+                        <div className="bg-[#2b2b31] border-2 border-[#BB9867] rounded-xl p-8">
                             <div className="text-center mb-6">
-                                <div className="text-4xl font-bold text-[#E1C586] mb-2">
+                                <div className="text-5xl font-bold text-[#E1C586] mb-2">
                                     $8.00
                                     <span className="text-lg text-[#999999]">/month</span>
                                 </div>
                                 <p className="text-[#999999] text-xs">Cancel anytime</p>
                             </div>
-
+                            <SubscriptionPayment />
                             <div className="space-y-2 mb-6 text-sm">
                                 <div className="flex items-center gap-2 text-[#E1D486]">
                                     <span>✦</span>
@@ -111,7 +112,7 @@ export default function SubscribeClient() {
                             <div className="text-2xl flex-shrink-0">💎</div>
                             <div>
                                 <h3 className="text-[#E1C586] font-bold text-sm mb-1">Access Exclusive Guide</h3>
-                                <p className="text-[#999999] text-xs">Filmmaker&apos;s Web3 knowledge hub</p>
+                                <p className="text-[#999999] text-xs">Filmmaker&apos;s web3 knowledge hub</p>
                             </div>
                         </div>
 
