@@ -1,17 +1,17 @@
 "use client";
 
 import React, { useState } from 'react';
-import { useAccount, useConnect, useDisconnect, useNetwork } from 'wagmi';
-import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
+import { useAccount, useConnect, useDisconnect } from 'wagmi';
 import { useSubscription, useSubscriptionState, useWalletBalance } from '../hooks/useSubscription';
+import { useConnectModal } from '@rainbow-me/rainbowkit';
 
 const SubscriptionPage: React.FC = () => {
-    const { address, isConnected } = useAccount();
-    const { chain } = useNetwork();
+    const { address, isConnected, chain } = useAccount();
     const { connect } = useConnect();
     const { disconnect } = useDisconnect();
     const [showCheckout, setShowCheckout] = useState(false);
     const [subscriptionComplete, setSubscriptionComplete] = useState(false);
+    const { openConnectModal } = useConnectModal();
 
     // Debug current chain
     console.log('Current chain:', chain);
@@ -56,7 +56,7 @@ const SubscriptionPage: React.FC = () => {
     const { balance: pyusdBalance, symbol: pyusdSymbol } = useWalletBalance('0xCaC524BcA292aaade2DF8A05cC58F0a65B1B3bB9');
 
     const handleConnectWallet = () => {
-        connect({ connector: new MetaMaskConnector() });
+        openConnectModal?.open();
     };
 
     const handleSubscribe = () => {
@@ -103,7 +103,7 @@ const SubscriptionPage: React.FC = () => {
                             <div>
                                 <p className="text-sm text-gray-600 mb-1">Transaction Hash:</p>
                                 <a
-                                    href={`https://sepolia.etherscan.io/tx/${activeSubscription.txHash}`}
+                                    href={`https://eth-sepolia.blockscout.com/tx/${activeSubscription.txHash}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="text-blue-600 hover:text-blue-800 break-all text-sm font-mono"
