@@ -1,3 +1,4 @@
+import { SubscribtionType } from '@/app/subscription/types';
 import { useState, useCallback } from 'react';
 import { useAccount, useSimulateContract, useBalance, useWriteContract } from 'wagmi';
 
@@ -370,8 +371,8 @@ export const useSubscription = (config: SubscriptionConfig) => {
 
 // Hook for managing subscription state
 export const useSubscriptionState = () => {
-    const [subscriptions, setSubscriptions] = useState<any[]>([]);
-    const [activeSubscription, setActiveSubscription] = useState<any | null>(null);
+    const [subscriptions, setSubscriptions] = useState<SubscribtionType[]>([]);
+    const [activeSubscription, setActiveSubscription] = useState<SubscribtionType | null>(null);
 
     const addSubscription = useCallback((subscription: any) => {
         setSubscriptions(prev => [...prev, subscription]);

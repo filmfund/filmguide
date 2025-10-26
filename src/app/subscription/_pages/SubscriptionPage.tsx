@@ -4,10 +4,10 @@ import React, { useState } from 'react';
 import { useAccount, useConnect, useDisconnect } from 'wagmi';
 import { useSubscription, useSubscriptionState, useWalletBalance } from '../../../hooks/useSubscription';
 import { useConnectModal } from '@rainbow-me/rainbowkit';
+import { SubscribtionType } from '../types';
 
 const SubscriptionPage: React.FC = () => {
     const { address, isConnected, chain } = useAccount();
-    const { connect } = useConnect();
     const { disconnect } = useDisconnect();
     const [showCheckout, setShowCheckout] = useState(false);
     const [subscriptionComplete, setSubscriptionComplete] = useState(false);
@@ -31,7 +31,7 @@ const SubscriptionPage: React.FC = () => {
             console.log('Payment result:', data);
 
             // Add to local state (in real app, this would come from contract events)
-            const newSubscription = {
+            const newSubscription: SubscribtionType = {
                 id: Date.now(), // In real app, this would be the contract subscription ID
                 amount: 8, // $8 (corrected amount)
                 token: 'PYUSD',
