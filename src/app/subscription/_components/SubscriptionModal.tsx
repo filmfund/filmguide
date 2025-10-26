@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { useAccount } from 'wagmi';
-import { useWalletBalance } from '../hooks/useSubscription';
+import { useWalletBalance } from '@/hooks/useSubscription';
 
 interface SubscriptionModalProps {
     isOpen: boolean;
@@ -14,7 +14,7 @@ const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
     onClose,
     onSubscribe
 }) => {
-    const { address, isConnected } = useAccount();
+    const { address } = useAccount();
     const [isProcessing, setIsProcessing] = useState(false);
 
     // Get real wallet balance for PYUSD

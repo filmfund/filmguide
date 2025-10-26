@@ -25,7 +25,7 @@ const SubscriptionPage: React.FC = () => {
         createSubscription,
         clearError
     } = useSubscription({
-        contractAddress: (import.meta as any).env?.NEXT_PUBLIC_CONTRACT_ADDRESS || '0xe90700267De4BAbCa1F03e4C60e560988320C169',
+        contractAddress: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || '0xe90700267De4BAbCa1F03e4C60e560988320C169',
         abi: [],
         onSuccess: (data) => {
             console.log('Payment result:', data);
