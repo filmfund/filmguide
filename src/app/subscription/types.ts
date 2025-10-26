@@ -1,4 +1,4 @@
-export type SubscribtionType = {
+export type SubscriptionType = {
     id: number;
     amount: number;
     token: string;
