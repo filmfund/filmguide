@@ -2,12 +2,12 @@
 
 import { useState } from 'react';
 import { useAccount } from 'wagmi';
-import { useSubscription, useSubscriptionState } from '@/hooks/useSubscription';
+import { useSubscription } from '@/hooks/useSubscription';
 
 const CONTRACT_ADDRESS = '0xe90700267De4BAbCa1F03e4C60e560988320C169';
 
 export default function SubscriptionPayment() {
-    const { address, isConnected } = useAccount();
+    const { isConnected } = useAccount();
     const [isProcessing, setIsProcessing] = useState(false);
 
     const {
