@@ -13,16 +13,31 @@ export default function ChatInterface() {
     const send = () => {
         if (!input.trim() || count >= FREE_LIMIT) return;
 
+        fetch('/api/agent/chat', {
+            method: 'POST',
+            body: JSON.stringify({
+                message: input
+            })
+        }).then((d) => {
+             setMessages(prev => [...prev, {
+                 role: 'ai',
+                 text: 'Great choice! Try this movie.'
+             }]);
+        })
+
         setMessages([...messages, { role: 'user', text: input }]);
         setInput('');
         setCount(count + 1);
 
-        setTimeout(() => {
-            setMessages(prev => [...prev, {
-                role: 'ai',
-                text: 'Great choice! Try this movie.'
-            }]);
-        }, 800);
+
+       
+        // setTimeout(() => {
+        //     setMessages(prev => [...prev, {
+        //         role: 'ai',
+        //         text: 'Great choice! Try this movie.'
+        //     }]);
+        // }, 800);
+        
     };
 
     const limitHit = count >= FREE_LIMIT;

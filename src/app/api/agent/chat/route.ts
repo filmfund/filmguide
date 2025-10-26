@@ -25,7 +25,7 @@ export const POST = withSubscriptionOrNah(
       const parsedBody = UserChatRequestSchema.parse(body);
       
       // Call the agent chat handler
-      const response = await agentChatHandler(parsedBody, user);
+      const response = await agentChatHandler({user_id: "testUser", text: parsedBody.message}, user);
         
         return NextResponse.json(response, { status: 200 });
     } catch (error) {
