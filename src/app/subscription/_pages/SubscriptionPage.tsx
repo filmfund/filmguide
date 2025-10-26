@@ -38,7 +38,7 @@ const SubscriptionPage: React.FC = () => {
                 active: true,
                 createdAt: new Date(),
                 nextPayment: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000), // 30 days from now
-                txHash: data.hash // Store transaction hash
+                txHash: data.transactionHash // Store transaction hash
             };
 
             addSubscription(newSubscription);
