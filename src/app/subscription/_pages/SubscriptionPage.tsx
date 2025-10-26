@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useAccount, useConnect, useDisconnect } from 'wagmi';
-import { useSubscription, useSubscriptionState, useWalletBalance } from '../_hooks/useSubscription';
+import { useSubscription, useSubscriptionState, useWalletBalance } from '../../../hooks/useSubscription';
 import { useConnectModal } from '@rainbow-me/rainbowkit';
 
 const SubscriptionPage: React.FC = () => {
