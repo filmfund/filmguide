@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { useAccount, useContractWrite, usePrepareContractWrite, useBalance } from 'wagmi';
+import { useAccount, useSimulateContract, useBalance, useWriteContract } from 'wagmi';
 
 // Simple contract configuration for Sepolia
 interface SubscriptionConfig {
@@ -187,104 +187,113 @@ const ERC20_ABI = [
     }
 ];
 
+// PYUSD token address and subscription price
+const PYUSD_ADDRESS = '0xCaC524BcA292aaade2DF8A05cC58F0a65B1B3bB9';
+const SUBSCRIPTION_PRICE = '10000000000000000000'; // 10 PYUSD (18 decimals) - correct for PYUSD token
+
+
 export const useSubscription = (config: SubscriptionConfig) => {
     const { address, isConnected } = useAccount();
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
     // Prepare contract write for creating subscription
-    const { config: createConfig, error: createError } = usePrepareContractWrite({
+    const result = useSimulateContract({
         address: config.contractAddress as `0x${string}`,
         abi: SUBSCRIPTION_ABI,
         functionName: 'createSubscription',
-        enabled: isConnected && !!address // Enable when wallet is connected
-    });
-
-    // Debug contract preparation
-    console.log('createConfig:', createConfig);
-    console.log('createError:', createError);
-
-    const { write: createSubscription } = useContractWrite({
-        ...createConfig,
-        onSuccess: (data) => {
-            console.log('Subscription created successfully:', data);
-            console.log('Transaction hash:', data.hash);
-            setIsLoading(false);
-
-            // Trigger success callback if provided
-            if (config.onSuccess) {
-                config.onSuccess(data);
-            }
-        },
-        onError: (error) => {
-            console.error('Subscription creation failed:', error);
-            setError(error.message);
-            setIsLoading(false);
+        query: {
+            enabled: isConnected && !!address // Enable when wallet is connected
         }
     });
 
-    // PYUSD token address and subscription price
-    const PYUSD_ADDRESS = '0xCaC524BcA292aaade2DF8A05cC58F0a65B1B3bB9';
-    const SUBSCRIPTION_PRICE = '10000000000000000000'; // 10 PYUSD (18 decimals) - correct for PYUSD token
+    // Debug contract preparation
+    console.log('useSimulateContract result:', result);
+
+    // const writeContractResult = useWriteContract({
+    //     //...result.config
+    //     //...createConfig,
+    //     onSuccess: (data) => {
+    //         console.log('Subscription created successfully:', data);
+    //         console.log('Transaction hash:', data.hash);
+    //         setIsLoading(false);
+
+    //         // Trigger success callback if provided
+    //         if (config.onSuccess) {
+    //             config.onSuccess(data);
+    //         }
+    //     },
+    //     onError: (error) => {
+    //         console.error('Subscription creation failed:', error);
+    //         setError(error.message);
+    //         setIsLoading(false);
+    //     }
+    // });
+    
+
 
     // Prepare contract write for token approval
-    const { config: approveConfig, error: approveError } = usePrepareContractWrite({
+    const approvalCall = useSimulateContract({
         address: PYUSD_ADDRESS as `0x${string}`,
         abi: ERC20_ABI,
         functionName: 'approve',
         args: [config.contractAddress as `0x${string}`, BigInt(SUBSCRIPTION_PRICE)],
-        enabled: isConnected && !!address
-    });
-
-    const { write: approveToken } = useContractWrite({
-        ...approveConfig,
-        onSuccess: (data) => {
-            console.log('Token approval successful:', data);
-            // Wait longer for approval to be processed on blockchain
-            setTimeout(() => {
-                console.log('Attempting subscription after approval...');
-                if (createSubscription) {
-                    createSubscription();
-                } else {
-                    console.error('createSubscription is still null after approval');
-                    setError('Subscription function not available after approval');
-                    setIsLoading(false);
-                }
-            }, 3000); // Wait 3 seconds for approval to be processed
-        },
-        onError: (error) => {
-            console.error('Token approval failed:', error);
-            setError(error.message);
-            setIsLoading(false);
+        query: {
+            enabled: isConnected && !!address
         }
     });
 
-    // Debug approval preparation
-    if (approveError) {
-        console.error('Approval preparation error:', approveError);
-    }
+    // const { write: approveToken } = useContractWrite({
+    //     ...approveConfig,
+    //     onSuccess: (data) => {
+    //         console.log('Token approval successful:', data);
+    //         // Wait longer for approval to be processed on blockchain
+    //         setTimeout(() => {
+    //             console.log('Attempting subscription after approval...');
+    //             if (createSubscription) {
+    //                 createSubscription();
+    //             } else {
+    //                 console.error('createSubscription is still null after approval');
+    //                 setError('Subscription function not available after approval');
+    //                 setIsLoading(false);
+    //             }
+    //         }, 3000); // Wait 3 seconds for approval to be processed
+    //     },
+    //     onError: (error) => {
+    //         console.error('Token approval failed:', error);
+    //         setError(error.message);
+    //         setIsLoading(false);
+    //     }
+    // });
+
+    // // Debug approval preparation
+    // if (approveError) {
+    //     console.error('Approval preparation error:', approveError);
+    // }
 
     // Prepare contract write for canceling subscription
-    const { config: cancelConfig } = usePrepareContractWrite({
+    const cancelCall = useSimulateContract({
         address: config.contractAddress as `0x${string}`,
         abi: SUBSCRIPTION_ABI,
         functionName: 'cancelSubscription',
         args: [0], // Placeholder subscription ID
-        enabled: false // Disabled for now, will be enabled when we have subscription ID
-    });
-
-    const { write: cancelSubscription } = useContractWrite({
-        ...cancelConfig,
-        onSuccess: (data) => {
-            console.log('Subscription canceled:', data);
-            setIsLoading(false);
-        },
-        onError: (error) => {
-            console.error('Subscription cancellation failed:', error);
-            setError(error.message);
-            setIsLoading(false);
+        query: {
+            enabled: false // Disabled for now, will be enabled when we have subscription ID
         }
     });
+
+    // const { write: cancelSubscription } = useContractWrite({
+    //     ...cancelConfig,
+    //     onSuccess: (data) => {
+    //         console.log('Subscription canceled:', data);
+    //         setIsLoading(false);
+    //     },
+    //     onError: (error) => {
+    //         console.error('Subscription cancellation failed:', error);
+    //         setError(error.message);
+    //         setIsLoading(false);
+    //     }
+    // });
 
     // Create subscription - two-step process: approve then subscribe
     const createSubscriptionTx = useCallback(async () => {
@@ -302,8 +311,7 @@ export const useSubscription = (config: SubscriptionConfig) => {
                 approveToken();
             } else {
                 console.error('approveToken is null/undefined');
-                console.error('approveConfig:', approveConfig);
-                console.error('approveError:', approveError);
+                console.error('approveConfig:', approvalCall);
                 throw new Error('Token approval not available - check console for details');
             }
         } catch (err) {
@@ -312,30 +320,30 @@ export const useSubscription = (config: SubscriptionConfig) => {
             setIsLoading(false);
             throw err;
         }
-    }, [isConnected, address, approveToken, approveConfig, approveError]);
+    }, [isConnected, address, approvalCall /* approveToken, approveConfig, approveError*/]);
 
-    // Cancel subscription
-    const cancelSubscriptionTx = useCallback(async () => {
-        if (!isConnected || !address) {
-            throw new Error('Wallet not connected');
-        }
+    // // Cancel subscription
+    // const cancelSubscriptionTx = useCallback(async () => {
+    //     if (!isConnected || !address) {
+    //         throw new Error('Wallet not connected');
+    //     }
 
-        setIsLoading(true);
-        setError(null);
+    //     setIsLoading(true);
+    //     setError(null);
 
-        try {
-            if (cancelSubscription) {
-                cancelSubscription();
-            } else {
-                throw new Error('Contract write not available');
-            }
-        } catch (err) {
-            const errorMessage = err instanceof Error ? err.message : 'Unknown error occurred';
-            setError(errorMessage);
-            setIsLoading(false);
-            throw err;
-        }
-    }, [isConnected, address, cancelSubscription]);
+    //     try {
+    //         if (cancelSubscription) {
+    //             cancelSubscription();
+    //         } else {
+    //             throw new Error('Contract write not available');
+    //         }
+    //     } catch (err) {
+    //         const errorMessage = err instanceof Error ? err.message : 'Unknown error occurred';
+    //         setError(errorMessage);
+    //         setIsLoading(false);
+    //         throw err;
+    //     }
+    // }, [isConnected, address, cancelSubscription]);
 
     return {
         // State
@@ -346,7 +354,7 @@ export const useSubscription = (config: SubscriptionConfig) => {
 
         // Actions
         createSubscription: createSubscriptionTx,
-        cancelSubscription: cancelSubscriptionTx,
+        //cancelSubscription: cancelSubscriptionTx,
 
         // Error handling
         clearError: () => setError(null)
@@ -411,8 +419,12 @@ export const useWalletBalance = (tokenAddress?: string) => {
     const { data: balanceData, isError } = useBalance({
         address: address,
         token: tokenAddress as `0x${string}`,
-        enabled: isConnected && !!address && !!tokenAddress,
-        watch: true, // Keep updated
+        query: {
+            enabled: isConnected && !!address && !!tokenAddress,
+        },
+        
+        //FIXME: get this working in Wagmi v2.*
+        // watch: true, // Keep updated
     });
 
     return {
