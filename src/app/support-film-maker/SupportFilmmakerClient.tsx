@@ -4,10 +4,10 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-const MOCK_SUBSCRIBED = false;
+//const MOCK_SUBSCRIBED = false;
 
 export default function SupportFilmmakerClient() {
-    const [isSubscribed] = useState(MOCK_SUBSCRIBED);
+    //const [isSubscribed] = useState(MOCK_SUBSCRIBED);
 
     return (
         <div className="min-h-screen bg-[#2b2b31]">
