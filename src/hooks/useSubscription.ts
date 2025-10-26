@@ -315,7 +315,7 @@ export const useSubscription = (config: SubscriptionConfig) => {
 
         try {
 
-            if (approvalData?.result) {
+            if (approvalData?.result && createSubscriptionData?.result) {
                 console.log('Starting token approval process...');
                 //approveToken();
                 // Step 1: Approve token spending
