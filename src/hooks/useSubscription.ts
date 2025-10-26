@@ -1,17 +1,19 @@
 import { SubscriptionType } from '@/app/subscription/types';
 import { useState, useCallback } from 'react';
+import { Abi, TransactionReceipt } from 'viem';
 import { useAccount, useSimulateContract, useBalance, useWriteContract } from 'wagmi';
+import { config as wagmiConfig } from '../lib/wagmi';
 
 // Simple contract configuration for Sepolia
 interface SubscriptionConfig {
     contractAddress: string;
-    abi: any[];
-    onSuccess?: (data: any) => void;
+    abi: Abi;
+    onSuccess?: (data: TransactionReceipt) => void;
 }
 
 // Contract ABI - simplified for single tier subscription
 // Complete ABI matching the deployed contract
-const SUBSCRIPTION_ABI = [
+const SUBSCRIPTION_ABI : Abi = [
     {
         "inputs": [{ "name": "_pyusdToken", "type": "address" }],
         "stateMutability": "nonpayable",
@@ -191,7 +193,7 @@ const ERC20_ABI = [
 // PYUSD token address and subscription price
 const PYUSD_ADDRESS = '0xCaC524BcA292aaade2DF8A05cC58F0a65B1B3bB9';
 const SUBSCRIPTION_PRICE = '10000000000000000000'; // 10 PYUSD (18 decimals) - correct for PYUSD token
-
+import { waitForTransactionReceipt } from '@wagmi/core'
 
 export const useSubscription = (config: SubscriptionConfig) => {
     const { address, isConnected } = useAccount();
@@ -236,9 +238,7 @@ export const useSubscription = (config: SubscriptionConfig) => {
 
     // Prepare contract write for token approval
     const {
-        data: approvalData,
-        isFetching: approvalIsFetching,
-        isError: approvalIsError
+        data: approvalData
     } = useSimulateContract({
         address: PYUSD_ADDRESS as `0x${string}`,
         abi: ERC20_ABI,
@@ -248,7 +248,7 @@ export const useSubscription = (config: SubscriptionConfig) => {
             enabled: isConnected && !!address
         }
     });
-    const { writeContractAsync: approvePYUSD, isPending: approvePYUSDIsPending } = useWriteContract();
+    const { writeContractAsync: approvePYUSD } = useWriteContract();
 
     // const { write: approveToken } = useContractWrite({
     //     ...approveConfig,
@@ -279,15 +279,15 @@ export const useSubscription = (config: SubscriptionConfig) => {
     // }
 
     // Prepare contract write for canceling subscription
-    const cancelCall = useSimulateContract({
-        address: config.contractAddress as `0x${string}`,
-        abi: SUBSCRIPTION_ABI,
-        functionName: 'cancelSubscription',
-        args: [0], // Placeholder subscription ID
-        query: {
-            enabled: false // Disabled for now, will be enabled when we have subscription ID
-        }
-    });
+    // const cancelCall = useSimulateContract({
+    //     address: config.contractAddress as `0x${string}`,
+    //     abi: SUBSCRIPTION_ABI,
+    //     functionName: 'cancelSubscription',
+    //     args: [0], // Placeholder subscription ID
+    //     query: {
+    //         enabled: false // Disabled for now, will be enabled when we have subscription ID
+    //     }
+    // });
 
     // const { write: cancelSubscription } = useContractWrite({
     //     ...cancelConfig,
@@ -316,7 +316,13 @@ export const useSubscription = (config: SubscriptionConfig) => {
             if (approvalData?.result) {
                 console.log('Starting token approval process...');
                 //approveToken();
-                await approvePYUSD(approvalData?.request);
+                const approveResult = await approvePYUSD(approvalData?.request);
+                //approveResult
+                const approveReceipt = await waitForTransactionReceipt(wagmiConfig, { hash: approveResult });
+                
+                config.onSuccess?.(approveReceipt);
+
+                //config.onSuccess()
             } else {
                 console.error('approveToken is null/undefined');
                 console.error('approveConfig:', approvalData);
@@ -328,7 +334,7 @@ export const useSubscription = (config: SubscriptionConfig) => {
             setIsLoading(false);
             throw err;
         }
-    }, [isConnected, address, approvalData, approvePYUSD /* approveToken, approveConfig, approveError*/]);
+    }, [isConnected, address, approvalData, approvePYUSD, config]);
 
     // // Cancel subscription
     // const cancelSubscriptionTx = useCallback(async () => {
