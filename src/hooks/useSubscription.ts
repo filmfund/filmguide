@@ -206,6 +206,7 @@ export const useSubscription = (config: SubscriptionConfig) => {
             enabled: isConnected && !!address // Enable when wallet is connected
         }
     });
+    
 
     // Debug contract preparation
     console.log('useSimulateContract result:', result);
@@ -233,7 +234,11 @@ export const useSubscription = (config: SubscriptionConfig) => {
 
 
     // Prepare contract write for token approval
-    const approvalCall = useSimulateContract({
+    const {
+        data: approvalData,
+        isFetching: approvalIsFetching,
+        isError: approvalIsError
+    } = useSimulateContract({
         address: PYUSD_ADDRESS as `0x${string}`,
         abi: ERC20_ABI,
         functionName: 'approve',
@@ -242,6 +247,7 @@ export const useSubscription = (config: SubscriptionConfig) => {
             enabled: isConnected && !!address
         }
     });
+    const { writeContractAsync: approvePYUSD, isPending: approvePYUSDIsPending } = useWriteContract();
 
     // const { write: approveToken } = useContractWrite({
     //     ...approveConfig,
@@ -306,12 +312,13 @@ export const useSubscription = (config: SubscriptionConfig) => {
 
         try {
             // Step 1: Approve token spending
-            if (approveToken) {
+            if (approvalData?.result) {
                 console.log('Starting token approval process...');
-                approveToken();
+                //approveToken();
+                await approvePYUSD(approvalData?.request);
             } else {
                 console.error('approveToken is null/undefined');
-                console.error('approveConfig:', approvalCall);
+                console.error('approveConfig:', approvalData);
                 throw new Error('Token approval not available - check console for details');
             }
         } catch (err) {
@@ -320,7 +327,7 @@ export const useSubscription = (config: SubscriptionConfig) => {
             setIsLoading(false);
             throw err;
         }
-    }, [isConnected, address, approvalCall /* approveToken, approveConfig, approveError*/]);
+    }, [isConnected, address, approvalData, approvePYUSD /* approveToken, approveConfig, approveError*/]);
 
     // // Cancel subscription
     // const cancelSubscriptionTx = useCallback(async () => {
