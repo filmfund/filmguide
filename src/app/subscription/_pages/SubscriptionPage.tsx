@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useAccount, useConnect, useDisconnect } from 'wagmi';
-import { useSubscription, useSubscriptionState, useWalletBalance } from '../hooks/useSubscription';
+import { useSubscription, useSubscriptionState, useWalletBalance } from '../_hooks/useSubscription';
 import { useConnectModal } from '@rainbow-me/rainbowkit';
 
 const SubscriptionPage: React.FC = () => {
@@ -56,7 +56,7 @@ const SubscriptionPage: React.FC = () => {
     const { balance: pyusdBalance, symbol: pyusdSymbol } = useWalletBalance('0xCaC524BcA292aaade2DF8A05cC58F0a65B1B3bB9');
 
     const handleConnectWallet = () => {
-        openConnectModal?.open();
+        openConnectModal?.();
     };
 
     const handleSubscribe = () => {
