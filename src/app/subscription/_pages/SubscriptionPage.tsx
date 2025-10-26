@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { useAccount, useConnect, useDisconnect } from 'wagmi';
+import { useAccount, useDisconnect } from 'wagmi';
 import { useSubscription, useSubscriptionState, useWalletBalance } from '../../../hooks/useSubscription';
 import { useConnectModal } from '@rainbow-me/rainbowkit';
 import { SubscriptionType } from '../types';
