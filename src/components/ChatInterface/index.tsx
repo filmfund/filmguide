@@ -19,11 +19,13 @@ export default function ChatInterface() {
                 message: input
             })
         }).then((d) => {
-             setMessages(prev => [...prev, {
+            return d.json();
+        }).then((data) => {
+            setMessages(prev => [...prev, {
                  role: 'ai',
-                 text: 'Great choice! Try this movie.'
+                 text: data.reply
              }]);
-        })
+        });
 
         setMessages([...messages, { role: 'user', text: input }]);
         setInput('');
