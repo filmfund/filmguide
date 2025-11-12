@@ -1,6 +1,6 @@
 import React from "react";
 import { Metadata } from "next";
-import { FilmTokensList } from "./_components/FilmToken";
+import FilmTokensList from "./_components/FilmTokenList";
 
 export const metadata: Metadata = {
     title: 'Film Tokens | Guide2Film3',

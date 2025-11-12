@@ -14,5 +14,5 @@
       ]
     }
   },
-  "postCreateCommand": "(curl -fsSL https://bun.com/install | bash) && (source ~/.bashrc) && (bun install)"
+  "postCreateCommand": "(curl -fsSL https://bun.com/install | bash) && (/home/codespace/.bun/bin/bun install)"
 }
