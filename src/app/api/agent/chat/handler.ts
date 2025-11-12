@@ -1,6 +1,8 @@
+import { User } from "@/types/global";
+
 export function agentChatHandler(
     parsedBody: { user_id: string; text: string },
-    user: any
+    user: User
 ): Promise<{ reply: string }> {
     // Placeholder implementation of the agent chat handler
     return new Promise((resolve) => {
