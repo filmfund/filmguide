@@ -5,6 +5,34 @@ import Link from 'next/link';
 
 const FREE_LIMIT = 3;
 
+function FormattedAIResponse({ text }: { text: string }) {
+    const cleanText = text.replace(/\*\*/g, '').replace(/\*/g, '');
+
+    const urlRegex = /(https?:\/\/[^\s]+)/g;
+    const parts = cleanText.split(urlRegex);
+
+    return (
+        <div className="text-sm whitespace-pre-wrap leading-relaxed">
+            {parts.map((part, index) => {
+                if (part.match(urlRegex)) {
+                    return (
+                        <a
+                            key={index}
+                            href={part}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-[#E1C586] underline hover:text-[#E1D486] break-all"
+                        >
+                            {part}
+                        </a>
+                    );
+                }
+                return <span key={index}>{part}</span>;
+            })}
+        </div>
+    );
+}
+
 export default function ChatInterface() {
     const [messages, setMessages] = useState<{ role: string; text: string; hasMore?: boolean }[]>([]);
     const [input, setInput] = useState('');
@@ -83,7 +111,11 @@ export default function ChatInterface() {
                     <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                         <div className={`rounded-lg p-4 max-w-[85%] ${m.role === 'user' ? 'bg-[#E1C586] text-[#2b2b31]' : 'bg-[#3a3a40] text-[#999999]'
                             }`}>
-                            <p className="text-sm whitespace-pre-wrap leading-relaxed">{m.text}</p>
+                            {m.role === 'user' ? (
+                                <p className="text-sm whitespace-pre-wrap leading-relaxed">{m.text}</p>
+                            ) : (
+                                <FormattedAIResponse text={m.text} />
+                            )}
                             {m.hasMore && (
                                 <Link href="/whattowatch" className="text-[#E1D486] text-xs mt-2 inline-block hover:underline">
                                     Learn more →
