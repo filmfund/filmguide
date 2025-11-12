@@ -81,9 +81,9 @@ export default function ChatInterface() {
 
                 {messages.map((m, i) => (
                     <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                        <div className={`rounded-lg p-3 max-w-[80%] ${m.role === 'user' ? 'bg-[#E1C586] text-[#2b2b31]' : 'bg-[#3a3a40] text-[#999999]'
+                        <div className={`rounded-lg p-4 max-w-[85%] ${m.role === 'user' ? 'bg-[#E1C586] text-[#2b2b31]' : 'bg-[#3a3a40] text-[#999999]'
                             }`}>
-                            <p className="text-sm">{m.text}</p>
+                            <p className="text-sm whitespace-pre-wrap leading-relaxed">{m.text}</p>
                             {m.hasMore && (
                                 <Link href="/whattowatch" className="text-[#E1D486] text-xs mt-2 inline-block hover:underline">
                                     Learn more →

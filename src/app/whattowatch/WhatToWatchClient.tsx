@@ -93,9 +93,9 @@ export default function WhatToWatchClient() {
 
                         {messages.map((m, i) => (
                             <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                                <div className={`rounded-lg p-3 max-w-[80%] ${m.role === 'user' ? 'bg-[#E1C586] text-[#2b2b31]' : 'bg-[#3a3a40] text-[#999999]'
+                                <div className={`rounded-lg p-4 max-w-[85%] ${m.role === 'user' ? 'bg-[#E1C586] text-[#2b2b31]' : 'bg-[#3a3a40] text-[#999999]'
                                     }`}>
-                                    {m.text}
+                                    <p className="text-sm whitespace-pre-wrap leading-relaxed">{m.text}</p>
                                 </div>
                             </div>
                         ))}
