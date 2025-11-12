@@ -1,7 +1,7 @@
 import { User } from "@/types/global";
 
 
-export function withRateLimit(handler: (req: Request, user: any) => Promise<Response>) {
+export function withRateLimit(handler: (req: Request, user: User) => Promise<Response>) {
     const RATE_LIMIT = 100;
     const WINDOW_SIZE_IN_HOURS = 1;
     const WINDOW_SIZE_IN_MILLISECONDS = WINDOW_SIZE_IN_HOURS * 60 * 60 * 1000;

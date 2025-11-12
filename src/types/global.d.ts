@@ -26,12 +26,12 @@ interface User {
   walletAddress?: string;
 }
 
-// Augment Next.js API request with a `user` property for middleware/auth
-declare global {
-  interface MyNextApiRequest extends import('next').NextApiRequest {
-    user?: User;
-  }
-}
+// // Augment Next.js API request with a `user` property for middleware/auth
+// declare global {
+//   interface MyNextApiRequest extends import('next').NextApiRequest {
+//     user?: User;
+//   }
+// }
 
 // Express-style augmentation (useful if you use express-like handlers)
 declare namespace Express {
