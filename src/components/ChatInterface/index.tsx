@@ -9,20 +9,45 @@ export default function ChatInterface() {
     const [messages, setMessages] = useState<{ role: string; text: string; hasMore?: boolean }[]>([]);
     const [input, setInput] = useState('');
     const [count, setCount] = useState(0);
+    const [isThinking, setIsThinking] = useState(false);
 
     const send = () => {
         if (!input.trim() || count >= FREE_LIMIT) return;
 
-        setMessages([...messages, { role: 'user', text: input }]);
+        const userMessage = input;
+        setMessages([...messages, { role: 'user', text: userMessage }]);
         setInput('');
         setCount(count + 1);
+        setIsThinking(true);
 
-        setTimeout(() => {
+        fetch('/api/agent/chat', {
+            method: 'POST',
+            body: JSON.stringify({
+                message: userMessage
+            })
+        }).then((d) => {
+            return d.json();
+        }).then((data) => {
+            setIsThinking(false);
             setMessages(prev => [...prev, {
                 role: 'ai',
-                text: 'Great choice! Try this movie.'
+                text: data.reply
             }]);
-        }, 800);
+        });
+
+        // setMessages([...messages, { role: 'user', text: input }]);
+        // setInput('');
+        // setCount(count + 1);
+
+
+
+        // setTimeout(() => {
+        //     setMessages(prev => [...prev, {
+        //         role: 'ai',
+        //         text: 'Great choice! Try this movie.'
+        //     }]);
+        // }, 800);
+
     };
 
     const limitHit = count >= FREE_LIMIT;
@@ -67,6 +92,21 @@ export default function ChatInterface() {
                         </div>
                     </div>
                 ))}
+
+                {isThinking && (
+                    <div className="flex justify-start">
+                        <div className="rounded-lg p-3 max-w-[80%] bg-[#3a3a40] text-[#999999]">
+                            <div className="flex items-center gap-2">
+                                <div className="flex gap-1">
+                                    <span className="w-2 h-2 bg-[#E1C586] rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
+                                    <span className="w-2 h-2 bg-[#E1C586] rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
+                                    <span className="w-2 h-2 bg-[#E1C586] rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
+                                </div>
+                                <p className="text-sm">Thinking...</p>
+                            </div>
+                        </div>
+                    </div>
+                )}
 
                 {limitHit && (
                     <div className="text-center p-4 border-2 border-[#E71111] rounded-lg">
