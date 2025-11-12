@@ -10,22 +10,33 @@ export default function WhatToWatchClient() {
     const [messages, setMessages] = useState<{ role: string; text: string }[]>([]);
     const [input, setInput] = useState('');
     const [messageCount, setMessageCount] = useState(0);
+    const [isThinking, setIsThinking] = useState(false);
     const isSubscribed = MOCK_SUBSCRIBED;
 
     const send = () => {
         if (!input.trim()) return;
         if (!isSubscribed && messageCount >= FREE_LIMIT) return;
 
-        setMessages([...messages, { role: 'user', text: input }]);
+        const userMessage = input;
+        setMessages([...messages, { role: 'user', text: userMessage }]);
         setInput('');
         setMessageCount(messageCount + 1);
+        setIsThinking(true);
 
-        setTimeout(() => {
+        fetch('/api/agent/chat', {
+            method: 'POST',
+            body: JSON.stringify({
+                message: userMessage
+            })
+        }).then((d) => {
+            return d.json();
+        }).then((data) => {
+            setIsThinking(false);
             setMessages(prev => [...prev, {
                 role: 'ai',
-                text: 'Here are some great blockchain films.'
+                text: data.reply
             }]);
-        }, 1000);
+        });
     };
 
     const limitReached = !isSubscribed && messageCount >= FREE_LIMIT;
@@ -88,6 +99,21 @@ export default function WhatToWatchClient() {
                                 </div>
                             </div>
                         ))}
+
+                        {isThinking && (
+                            <div className="flex justify-start">
+                                <div className="rounded-lg p-3 max-w-[80%] bg-[#3a3a40] text-[#999999]">
+                                    <div className="flex items-center gap-2">
+                                        <p className="text-sm">Thinking</p>
+                                        <div className="flex gap-1">
+                                            <span className="w-2 h-2 bg-[#E1C586] rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
+                                            <span className="w-2 h-2 bg-[#E1C586] rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
+                                            <span className="w-2 h-2 bg-[#E1C586] rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
 
                         {limitReached && (
                             <div className="text-center p-4 border-2 border-[#E71111] rounded-lg">
