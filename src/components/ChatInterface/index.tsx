@@ -97,12 +97,12 @@ export default function ChatInterface() {
                     <div className="flex justify-start">
                         <div className="rounded-lg p-3 max-w-[80%] bg-[#3a3a40] text-[#999999]">
                             <div className="flex items-center gap-2">
+                                <p className="text-sm">Thinking</p>
                                 <div className="flex gap-1">
                                     <span className="w-2 h-2 bg-[#E1C586] rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
                                     <span className="w-2 h-2 bg-[#E1C586] rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
                                     <span className="w-2 h-2 bg-[#E1C586] rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
                                 </div>
-                                <p className="text-sm">Thinking...</p>
                             </div>
                         </div>
                     </div>
